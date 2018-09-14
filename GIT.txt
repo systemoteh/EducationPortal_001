@@ -1,0 +1,17 @@
+Новый:
+
+git init
+git add .
+git commit -m "20180914"
+git remote add origin https://github.com/systemoteh/EducationPortal_001.git
+git push -u origin master
+
+---------------------------------------------------------------------------------------
+
+Существующий локально обновить в GitHub:
+
+git init
+git add .
+git commit -m 'Lesson 15'
+git push -u origin master
+

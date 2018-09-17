@@ -21,7 +21,9 @@ public class CourseController {
     private CourseServise courseServise;
 
     @RequestMapping(value = {"/", "/education"}, method = RequestMethod.GET)
-    public String course(@RequestParam(value = "course", required = false) String link, Model model) {
+    public String course(@RequestParam(value = "course", required = false) String courseLink,
+                         @RequestParam(value = "lecture", required = false) String lectureLink,
+                         Model model) {
 
         /**  CourseBean is a @Component, therefore courseBean.getCourseList() never is null
          *  @see CourseBean.init();
@@ -31,10 +33,12 @@ public class CourseController {
         }*/
 
         for (Course course : courseBean.getCourseList()) {
-            if (course.getLink().equals(link)) {
+            if (course.getLink().equals(courseLink)) {
                 courseBean.setSelectedCourse(course);
             }
         }
+
+        // TODO setSelectedLecture
 
         return "education.xhtml";
     }

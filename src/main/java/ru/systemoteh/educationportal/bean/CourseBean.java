@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.systemoteh.educationportal.controller.CourseController;
 import ru.systemoteh.educationportal.model.Course;
+import ru.systemoteh.educationportal.model.Lecture;
 import ru.systemoteh.educationportal.service.CourseServise;
+import ru.systemoteh.educationportal.service.LectureService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -36,6 +38,16 @@ public class CourseBean implements Serializable {
         this.courseServise = courseServise;
     }
 
+    @ManagedProperty(value = "#{lectureService}")
+    private LectureService lectureService;
+
+    @Autowired(required = true)
+    @Qualifier(value = "lectureService")
+    public void setLectureService(LectureService lectureService) {
+        this.lectureService = lectureService;
+    }
+
+
     @PostConstruct
     public void init() {
         courseList = courseServise.getAllCourses();
@@ -43,10 +55,15 @@ public class CourseBean implements Serializable {
 
     /**
      * Call only from xhtml/jsp pages, because response.sendRedirect()
+     *
      * @param course
-    */
+     */
     public void goToCourse(Course course) {
         this.selectedCourse = course;
+        // TODO Сделать LectureBean, в нем переменная selectedLecture. В Aside курса - список леций.
+        // TODO Навигация по лекциям внутри курса. Начальная и конечная страницы каждого курса (однотипные названия для всех курсов)
+        // TODO Первая страница курса всегда открыта для пользователя, на остальные потом сделать проверку доступа (покупка доступа за виртуальную валюту)
+//        List<Lecture> lectureList = lectureService.getLecturesByCourseId(course.getId());
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
         try {

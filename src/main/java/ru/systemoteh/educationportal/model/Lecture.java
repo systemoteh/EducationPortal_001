@@ -1,16 +1,14 @@
 package ru.systemoteh.educationportal.model;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 /**
- * Simple JavaBean domain object that represents a Course.
+ * Simple JavaBean domain object that represents a Lecture.
  */
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name = "lecture")
+public class Lecture {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,15 +20,14 @@ public class Course {
     @Column(name = "name_rus")
     private String nameRus;
 
+    @Column(name = "course_id")
+    private Integer courseId;
+
     @Column(name = "link")
     private String link;
 
     @Column(name = "description")
     private String description;
-
-
-    public Course() {
-    }
 
     public Integer getId() {
         return id;
@@ -56,6 +53,14 @@ public class Course {
         this.nameRus = nameRus;
     }
 
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
     public String getLink() {
         return link;
     }
@@ -74,10 +79,11 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "Lecture{" +
                 "id=" + id +
                 ", nameEng='" + nameEng + '\'' +
                 ", nameRus='" + nameRus + '\'' +
+                ", courseId=" + courseId +
                 ", link='" + link + '\'' +
                 ", description='" + description + '\'' +
                 '}';

@@ -44,9 +44,17 @@
     <!-- CourseDao bean -->
     <bean id="courseDao" class="ru.systemoteh.educationportal.dao.CourseDaoImpl"/>
 
+    <!-- LectureDao bean -->
+    <bean id="lectureDao" class="ru.systemoteh.educationportal.dao.LectureDaoImpl"/>
+
     <!-- CourseServise bean -->
     <bean id="courseServise" class="ru.systemoteh.educationportal.service.CourseServiseImpl">
         <property name="courseDao" ref="courseDao" />
+    </bean>
+
+    <!-- LectureService bean -->
+    <bean id="lectureService" class="ru.systemoteh.educationportal.service.LectureServiceImpl">
+        <property name="lectureDao" ref="lectureDao" />
     </bean>
 
 </beans>

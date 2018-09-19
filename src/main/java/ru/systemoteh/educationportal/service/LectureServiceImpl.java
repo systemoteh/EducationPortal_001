@@ -15,32 +15,27 @@ public class LectureServiceImpl implements LectureService {
 
     @Override
     public Lecture getLectureById(Integer id) {
-        // TODO
-        return null;
+        return lectureDao.getLectureById(id);
     }
 
     @Override
     public Lecture getLectureByNameEng(String nameEng) {
-        // TODO
-        return null;
+        return lectureDao.getLectureByNameEng(nameEng);
     }
 
     @Override
     public Lecture getLectureByNameRus(String nameRus) {
-        // TODO
-        return null;
+        return lectureDao.getLectureByNameRus(nameRus);
     }
 
     @Override
     public Lecture getLectureByLink(String link) {
-        // TODO
-        return null;
+        return lectureDao.getLectureByLink(link);
     }
 
     @Override
     public List<Lecture> getAllLectures() {
-        // TODO
-        return null;
+        return lectureDao.getAllLectures();
     }
 
     @Override

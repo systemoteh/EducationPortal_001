@@ -14,8 +14,7 @@ public class LectureDaoImpl implements LectureDao {
 
     @Override
     public Lecture getLectureById(Integer id) {
-        // TODO
-        return null;
+        return entityManager.find(Lecture.class, id);
     }
 
     @Override
@@ -32,8 +31,9 @@ public class LectureDaoImpl implements LectureDao {
 
     @Override
     public Lecture getLectureByLink(String link) {
-        // TODO
-        return null;
+        Query query = entityManager.createNativeQuery("SELECT * FROM lecture WHERE link = ?", Lecture.class);
+        query.setParameter(1, link);
+        return (Lecture) query.getSingleResult();
     }
 
     @Override
@@ -44,7 +44,7 @@ public class LectureDaoImpl implements LectureDao {
 
     @Override
     public List<Lecture> getLecturesByCourseId(Integer courseId) {
-        Query query = entityManager.createNativeQuery("SELECT * FROM lecture WHERE course_id = ?");
+        Query query = entityManager.createNativeQuery("SELECT * FROM lecture WHERE course_id = ?", Lecture.class);
         query.setParameter(1, courseId);
         return query.getResultList();
     }

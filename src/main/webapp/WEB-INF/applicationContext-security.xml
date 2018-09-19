@@ -11,7 +11,7 @@
     <http auto-config="true">
         <intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/education" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
-        <intercept-url pattern="/secure/*" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/pages/secure/*" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 
         <!-- To the root directory and sub-pages -->

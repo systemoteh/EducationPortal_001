@@ -2,7 +2,6 @@ package ru.systemoteh.educationportal.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Simple JavaBean domain object that represents a Course.
@@ -28,6 +27,8 @@ public class Course {
     @Column(name = "description")
     private String description;
 
+    @Transient
+    private List<Lecture> lectureList;
 
     public Course() {
     }
@@ -72,6 +73,14 @@ public class Course {
         this.description = description;
     }
 
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
+    public void setLectureList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -80,6 +89,7 @@ public class Course {
                 ", nameRus='" + nameRus + '\'' +
                 ", link='" + link + '\'' +
                 ", description='" + description + '\'' +
+                ", lectureList=" + lectureList +
                 '}';
     }
 }

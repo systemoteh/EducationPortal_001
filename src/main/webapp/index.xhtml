@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="#{facesContext.externalContext.requestContextPath}/WEB-INF/template/layout.xhtml">
+<ui:composition template="#{facesContext.externalContext.requestContextPath}/pages/template/layout.xhtml">
 
     <ui:define name="aside">
         ASIDE Main
@@ -33,7 +33,7 @@
                     <h:commandLink action="#{courseBean.goToCourse(course)}">
                         <h:outputText value="#{course.nameEng}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <f:param name="course" value="#{course.link}"/>
+                        <f:param name="courseLink" value="#{course.link}"/>
                         <!--<h:graphicImage library="images" name="course.image" />-->
                     </h:commandLink>
                 </p:column>

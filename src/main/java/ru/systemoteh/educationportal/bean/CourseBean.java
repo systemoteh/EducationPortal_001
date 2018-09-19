@@ -3,9 +3,7 @@ package ru.systemoteh.educationportal.bean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import ru.systemoteh.educationportal.controller.CourseController;
 import ru.systemoteh.educationportal.model.Course;
-import ru.systemoteh.educationportal.model.Lecture;
 import ru.systemoteh.educationportal.service.CourseServise;
 import ru.systemoteh.educationportal.service.LectureService;
 
@@ -14,8 +12,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
@@ -29,17 +25,27 @@ public class CourseBean implements Serializable {
     private List<Course> courseList;
     private Course selectedCourse;
 
+    @ManagedProperty(value = "#{lectureBean}")
+    LectureBean lectureBean;
+
     @ManagedProperty(value = "#{courseServise}")
     private CourseServise courseServise;
+
+    @ManagedProperty(value = "#{lectureService}")
+    private LectureService lectureService;
+
+
+    @Autowired(required = true)
+    @Qualifier(value = "lectureBean")
+    public void setLectureBean(LectureBean lectureBean) {
+        this.lectureBean = lectureBean;
+    }
 
     @Autowired(required = true)
     @Qualifier(value = "courseServise")
     public void setCourseServise(CourseServise courseServise) {
         this.courseServise = courseServise;
     }
-
-    @ManagedProperty(value = "#{lectureService}")
-    private LectureService lectureService;
 
     @Autowired(required = true)
     @Qualifier(value = "lectureService")
@@ -60,14 +66,17 @@ public class CourseBean implements Serializable {
      */
     public void goToCourse(Course course) {
         this.selectedCourse = course;
-        // TODO Сделать LectureBean, в нем переменная selectedLecture. В Aside курса - список леций.
-        // TODO Навигация по лекциям внутри курса. Начальная и конечная страницы каждого курса (однотипные названия для всех курсов)
-        // TODO Первая страница курса всегда открыта для пользователя, на остальные потом сделать проверку доступа (покупка доступа за виртуальную валюту)
-//        List<Lecture> lectureList = lectureService.getLecturesByCourseId(course.getId());
+        this.selectedCourse.setLectureList(lectureService.getLecturesByCourseId(course.getId()));
+
+        // TODO Refactor get intro lecture
+        lectureBean.setSelectedLecture(lectureService.getLectureByLink(selectedCourse.getLink() + "-intro"));
+
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
         try {
-            response.sendRedirect("/education?course=" + selectedCourse.getLink());
+            response.sendRedirect("/education?course="
+                    + selectedCourse.getLink()
+                    + "&lecture=" + lectureBean.getSelectedLecture().getLink());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,4 +101,5 @@ public class CourseBean implements Serializable {
     public void setSelectedCourse(Course selectedCourse) {
         this.selectedCourse = selectedCourse;
     }
+
 }

@@ -19,7 +19,7 @@ public class CourseDaoImpl implements CourseDao {
     @Override
     public Course getCourseByNameEng(String nameEng) {
         // TODO
-        return entityManager.find(Course.class, nameEng);
+        return null;
     }
 
     @Override

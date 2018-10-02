@@ -13,24 +13,52 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-
-                <a href="/index.xhtml" class="btn btn-primary navbar-btn navbar-left sign-in"><i class="fa fa-facebook-official" aria-hidden="true"></i> Main Page</a>
-                <a href="/login" class="btn btn-primary navbar-btn navbar-right sign-in"><i class="fa fa-facebook-official" aria-hidden="true"></i> Sign in</a>
-
-                <div class="container">
-                    <c:if test="${pageContext.request.userPrincipal.name == null}">
-                        <form id="logoutForm" method="post" action="${contextPath}/logout">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </form>
-                        <h2>Admin Page ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
-                        </h2>
-                    </c:if>
-                </div>
-
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#portalNav"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="btn btn-primary navbar-btn navbar-left sign-in" href="/index.xhtml">Main Page</a>
+            </div>
+            <div class="collapse navbar-collapse text-center" id="portalNav">
+                <c:choose>
+                    <c:when test="#{userBean.currentUser != null }">
+                        <ul class="nav navbar-nav text-center">
+                            <li role="presentation"><a href="/welcome">Welcome Page</a></li>
+                            <li role="presentation"><a href="# ">Student: #{userBean.currentUser.username}</a></li>
+                            <li role="presentation"><a href="#">Coins: #{userBean.currentUser.userDetail.coins}</a></li>
+                            <li role="presentation"><a href="#">Exp: #{userBean.currentUser.userDetail.experience}</a>
+                            </li>
+                            <li role="presentation"><a href="#">UserDetails</a></li>
+                        </ul>
+                        <a class="btn btn-primary navbar-btn navbar-right sign-in" href="/logout"> Logout </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="btn btn-primary navbar-btn navbar-right sign-in" href="/login"> Login </a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
 
 </ui:composition>
+
+<!--<ul id="currentUserDetail"-->
+<!--class="nav navbar-nav navbar-right #{userBean.currentUser == null ? 'hidden' : '' }">-->
+<!--<li class="dropdown">-->
+<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
+<!--aria-expanded="false">-->
+<!--<i class="fa fa-user" aria-hidden="true"></i> #{userBean.currentUser.username}-->
+<!--<span class="caret"></span>-->
+<!--</a>-->
+<!--<div class="dropdown-menu shopping-cart-desc">-->
+<!--UserDetail: <span class="total-count">link to modal window</span> <br/>-->
+<!--<a onclick="document.forms['logoutForm'].submit()">Logout</a> <br/>-->
+<!--&lt;!&ndash;<a href="/shopping-cart" class="btn btn-primary btn-block">View cart</a>&ndash;&gt;-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
 
 </html>

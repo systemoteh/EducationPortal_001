@@ -1,4 +1,4 @@
-package ru.systemoteh.educationportal.service;
+package ru.systemoteh.educationportal.service.security;
 
 /**
  * Service for Security.

@@ -1,6 +1,8 @@
 package ru.systemoteh.educationportal.model;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -25,9 +27,17 @@ public class User {
     private String confirmPassword;
 
     @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
+    @JoinTable(name = "user___role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user___lecture", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "lecture_id"))
+    private List<Lecture> userLectureList;
+
+    @OneToOne(mappedBy = "user")    // // @see UserDetail.user
+    private UserDetail userDetail;
 
 
     public Long getId() {
@@ -70,4 +80,41 @@ public class User {
         this.roles = roles;
     }
 
+    public List<Lecture> getUserLectureList() {
+        return userLectureList;
+    }
+
+    public void setUserLectureList(List<Lecture> userLectureList) {
+        this.userLectureList = userLectureList;
+    }
+
+    public UserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

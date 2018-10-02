@@ -1,4 +1,4 @@
-package ru.systemoteh.educationportal.service;
+package ru.systemoteh.educationportal.service.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

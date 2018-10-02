@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import ru.systemoteh.educationportal.model.User;
-import ru.systemoteh.educationportal.service.UserService;
+import ru.systemoteh.educationportal.service.security.UserSecurityService;
 
 /**
  * Validator for {@link User} class,
@@ -14,10 +14,10 @@ import ru.systemoteh.educationportal.service.UserService;
  */
 
 @Component
-public class UserValidator implements Validator {
+public class UserSecurityValidator implements Validator {
 
     @Autowired
-    private UserService userService;  // Description in applicationContext-root.xml
+    private UserSecurityService userSecurityService;  // Description in applicationContext-root.xml
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -33,7 +33,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("username", "Size.userForm.username");
         }
 
-        if (userService.findByUsername(user.getUsername()) != null) {
+        if (userSecurityService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
 

@@ -1,10 +1,10 @@
 package ru.systemoteh.educationportal.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import ru.systemoteh.educationportal.model.User;
 
-public interface UserDao extends JpaRepository<User, Long> {
+public interface UserDao {
 
-    User findByUsername(String username);
+    User getUserById(Integer userId);
+
 
 }

@@ -7,10 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.systemoteh.educationportal.bean.UserBean;
 import ru.systemoteh.educationportal.model.User;
-import ru.systemoteh.educationportal.service.SecurityService;
-import ru.systemoteh.educationportal.service.UserService;
-import ru.systemoteh.educationportal.validator.UserValidator;
+import ru.systemoteh.educationportal.service.security.SecurityService;
+import ru.systemoteh.educationportal.service.security.UserSecurityService;
+import ru.systemoteh.educationportal.validator.UserSecurityValidator;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  * Controller for {@link User}'s pages.
@@ -20,13 +24,16 @@ import ru.systemoteh.educationportal.validator.UserValidator;
 public class UserController {
 
     @Autowired
-    private UserService userService;  // Description in applicationContext-root.xml
+    private UserSecurityService userSecurityService;  // Description in applicationContext-root.xml
 
     @Autowired
     private SecurityService securityService;  // Description in applicationContext-root.xml
 
     @Autowired
-    private UserValidator userValidator;  // Description in applicationContext-root.xml
+    private UserSecurityValidator userSecurityValidator;  // Description in applicationContext-root.xml
+
+    @Autowired
+    private UserBean userBean;
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -38,13 +45,13 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+        userSecurityValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "registration.jsp";
         }
 
-        userService.save(userForm);
+        userSecurityService.save(userForm);
 
         securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
 
@@ -58,9 +65,10 @@ public class UserController {
         }
 
         if (logout != null) {
-            model.addAttribute("message", "Logged out successfully.");
+//            model.addAttribute("message", "Logged out successfully.");
+            userBean.setCurrentUser(null);  // TODO Refactor -> Guest
+            return "redirect:/index.xhtml";
         }
-
         return "login.jsp";
     }
 

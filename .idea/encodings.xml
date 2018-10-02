@@ -3,16 +3,16 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/controller/UserController.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/dao/RoleDao.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/dao/UserDao.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/dao/security/RoleSecurityDao.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/dao/security/UserSecurityDao.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/model/Role.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/model/User.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/SecurityService.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/SecurityServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/UserDetailsServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/UserService.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/UserServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/validator/UserValidator.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/SecurityService.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/SecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserDetailsSecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserSecurityService.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserSecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/validator/UserSecurityValidator.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/database.properties" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/excel-pdf-config.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/initDB.sql" charset="windows-1251" />
@@ -23,9 +23,6 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-root.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/secure/admin.jsp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/global/login.jsp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/global/registration.jsp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/secure" charset="windows-1251" />

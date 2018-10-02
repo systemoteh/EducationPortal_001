@@ -8,7 +8,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
 
     @Id
@@ -18,7 +18,7 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles")     // @see User.roles
     private Set<User> users;
 
     public Role() {

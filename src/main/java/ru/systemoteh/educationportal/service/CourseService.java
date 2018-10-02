@@ -4,15 +4,9 @@ import ru.systemoteh.educationportal.model.Course;
 
 import java.util.List;
 
-public interface CourseServise {
+public interface CourseService {
 
     Course getCourseById(Integer id);
-
-    Course getCourseByNameEng(String nameEng);
-
-    Course getCourseByNameRus(String nameRus);
-
-    Course getCourseByLink(String link);
 
     List<Course> getAllCourses();
 

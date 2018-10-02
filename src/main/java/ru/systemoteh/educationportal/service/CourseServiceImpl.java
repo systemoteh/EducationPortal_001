@@ -7,7 +7,7 @@ import ru.systemoteh.educationportal.model.Course;
 import java.util.List;
 
 @Service
-public class CourseServiseImpl implements CourseServise {
+public class CourseServiceImpl implements CourseService {
 
     private CourseDao courseDao;
 
@@ -20,20 +20,6 @@ public class CourseServiseImpl implements CourseServise {
         return courseDao.getCourseById(id);
     }
 
-    @Override
-    public Course getCourseByNameEng(String nameEng) {
-        return courseDao.getCourseByNameEng(nameEng);
-    }
-
-    @Override
-    public Course getCourseByNameRus(String nameRus) {
-        return courseDao.getCourseByNameRus(nameRus);
-    }
-
-    @Override
-    public Course getCourseByLink(String link) {
-        return courseDao.getCourseByLink(link);
-    }
 
     @Override
     public List<Course> getAllCourses() {

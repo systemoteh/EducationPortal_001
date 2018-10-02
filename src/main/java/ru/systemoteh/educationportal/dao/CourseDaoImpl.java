@@ -17,24 +17,6 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
-    public Course getCourseByNameEng(String nameEng) {
-        // TODO
-        return null;
-    }
-
-    @Override
-    public Course getCourseByNameRus(String nameRus) {
-        // TODO
-        return null;
-    }
-
-    @Override
-    public Course getCourseByLink(String link) {
-        // TODO
-        return null;
-    }
-
-    @Override
     public List<Course> getAllCourses() {
         return entityManager.createQuery("FROM Course ").getResultList();
     }

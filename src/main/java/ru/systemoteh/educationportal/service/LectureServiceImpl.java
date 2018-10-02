@@ -19,27 +19,27 @@ public class LectureServiceImpl implements LectureService {
     }
 
     @Override
-    public Lecture getLectureByNameEng(String nameEng) {
-        return lectureDao.getLectureByNameEng(nameEng);
-    }
-
-    @Override
-    public Lecture getLectureByNameRus(String nameRus) {
-        return lectureDao.getLectureByNameRus(nameRus);
-    }
-
-    @Override
     public Lecture getLectureByLink(String link) {
         return lectureDao.getLectureByLink(link);
     }
 
     @Override
-    public List<Lecture> getAllLectures() {
-        return lectureDao.getAllLectures();
+    public Lecture getLectureByCourseIdAndLectureLink(Integer courseId, String lectureLink) {
+        return lectureDao.getLectureByCourseIdAndLectureLink(courseId, lectureLink);
     }
 
     @Override
     public List<Lecture> getLecturesByCourseId(Integer courseId) {
         return lectureDao.getLecturesByCourseId(courseId);
+    }
+
+    @Override
+    public List<Lecture> getUserLectureListByUserId(Long userId) {
+        return lectureDao.getUserLectureListByUserId(userId);
+    }
+
+    @Override
+    public boolean unblockLecture(Long userId, int lectureId) {
+        return lectureDao.unblockLecture(userId, lectureId);
     }
 }

@@ -28,6 +28,8 @@
 
 <div class="container">
 
+    <a href="/index.xhtml" class="btn btn-primary navbar-btn navbar-left sign-in"><i class="fa fa-facebook-official" aria-hidden="true"></i> Main Page</a>
+
     <form method="POST" action="${contextPath}/login" class="form-signin">
         <h2 class="form-heading">Log in</h2>
 

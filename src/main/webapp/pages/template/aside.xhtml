@@ -9,12 +9,12 @@
 
 <ui:composition>
 
-    <h:form>
+    <h:form id="asideForm">
 
         <p:dataTable var="lecture" value="#{courseBean.selectedCourse.lectureList}">
 
             <p:column headerText="Name Lecture">
-                <h:commandLink action="#{lectureBean.goToLecture(lecture)}">
+                <h:commandLink action="#{lectureBean.goToLecture(lecture)}" update=":contentForm">
                     <h:outputText value="#{lecture.nameEng}"/>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <f:param name="lecture" value="#{lecture.link}"/>
@@ -23,6 +23,7 @@
             </p:column>
 
         </p:dataTable>
+
 
     </h:form>
 

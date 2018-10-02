@@ -8,14 +8,14 @@ public interface LectureService {
 
     Lecture getLectureById(Integer id);
 
-    Lecture getLectureByNameEng(String nameEng);
-
-    Lecture getLectureByNameRus(String nameRus);
-
     Lecture getLectureByLink(String link);
 
-    List<Lecture> getAllLectures();
+    Lecture getLectureByCourseIdAndLectureLink(Integer courseId, String lectureLink);
 
     List<Lecture> getLecturesByCourseId(Integer courseId);
+
+    List<Lecture> getUserLectureListByUserId(Long userId);
+
+    boolean unblockLecture(Long userId, int lectureId);
 
 }

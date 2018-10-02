@@ -2,6 +2,7 @@ package ru.systemoteh.educationportal.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Simple JavaBean domain object that represents a Course.
@@ -82,14 +83,30 @@ public class Course {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Course)) return false;
+        Course course = (Course) o;
+        return Objects.equals(id, course.id) &&
+                Objects.equals(nameEng, course.nameEng) &&
+                Objects.equals(nameRus, course.nameRus) &&
+                Objects.equals(link, course.link) &&
+                Objects.equals(description, course.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nameEng, nameRus, link, description);
+    }
+
+    @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
                 ", nameEng='" + nameEng + '\'' +
                 ", nameRus='" + nameRus + '\'' +
                 ", link='" + link + '\'' +
-                ", description='" + description + '\'' +
-                ", lectureList=" + lectureList +
+                ", description='" + description +
                 '}';
     }
 }

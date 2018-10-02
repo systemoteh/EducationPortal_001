@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import ru.systemoteh.educationportal.model.Course;
-import ru.systemoteh.educationportal.service.CourseServise;
+import ru.systemoteh.educationportal.model.Lecture;
+import ru.systemoteh.educationportal.service.CourseService;
 import ru.systemoteh.educationportal.service.LectureService;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @ManagedBean(name = "courseBean")
 @SessionScoped
@@ -28,8 +31,8 @@ public class CourseBean implements Serializable {
     @ManagedProperty(value = "#{lectureBean}")
     LectureBean lectureBean;
 
-    @ManagedProperty(value = "#{courseServise}")
-    private CourseServise courseServise;
+    @ManagedProperty(value = "#{courseService}")
+    private CourseService courseService;
 
     @ManagedProperty(value = "#{lectureService}")
     private LectureService lectureService;
@@ -42,9 +45,9 @@ public class CourseBean implements Serializable {
     }
 
     @Autowired(required = true)
-    @Qualifier(value = "courseServise")
-    public void setCourseServise(CourseServise courseServise) {
-        this.courseServise = courseServise;
+    @Qualifier(value = "courseService")
+    public void setCourseServise(CourseService courseService) {
+        this.courseService = courseService;
     }
 
     @Autowired(required = true)
@@ -56,7 +59,7 @@ public class CourseBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        courseList = courseServise.getAllCourses();
+        courseList = courseService.getAllCourses();
     }
 
     /**
@@ -68,15 +71,13 @@ public class CourseBean implements Serializable {
         this.selectedCourse = course;
         this.selectedCourse.setLectureList(lectureService.getLecturesByCourseId(course.getId()));
 
-        // TODO Refactor get intro lecture
-        lectureBean.setSelectedLecture(lectureService.getLectureByLink(selectedCourse.getLink() + "-intro"));
-
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
         try {
-            response.sendRedirect("/education?course="
-                    + selectedCourse.getLink()
-                    + "&lecture=" + lectureBean.getSelectedLecture().getLink());
+            response.sendRedirect("/education"
+                            + "?course=" + selectedCourse.getLink()
+                    // TODO last visit lecture link
+            );
         } catch (IOException e) {
             e.printStackTrace();
         }

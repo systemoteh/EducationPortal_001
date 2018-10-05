@@ -2,9 +2,10 @@ package ru.systemoteh.educationportal.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import ru.systemoteh.educationportal.model.Course;
-import ru.systemoteh.educationportal.model.Lecture;
 import ru.systemoteh.educationportal.service.CourseService;
 import ru.systemoteh.educationportal.service.LectureService;
 
@@ -17,12 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @ManagedBean(name = "courseBean")
 @SessionScoped
 @Component
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CourseBean implements Serializable {
 
     private List<Course> courseList;
@@ -69,7 +69,6 @@ public class CourseBean implements Serializable {
      */
     public void goToCourse(Course course) {
         this.selectedCourse = course;
-        this.selectedCourse.setLectureList(lectureService.getLecturesByCourseId(course.getId()));
 
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();

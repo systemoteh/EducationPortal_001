@@ -36,7 +36,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "lecture_id"))
     private List<Lecture> userLectureList;
 
-    @OneToOne(mappedBy = "user")    // // @see UserDetail.user
+    @OneToOne(mappedBy = "user")    // @see UserDetail.user
     private UserDetail userDetail;
 
 

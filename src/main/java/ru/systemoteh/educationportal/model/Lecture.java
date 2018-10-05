@@ -30,6 +30,10 @@ public class Lecture {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)    // @see this.courseId, column course_id
+    private Course course;
+
     public Lecture() {
     }
 

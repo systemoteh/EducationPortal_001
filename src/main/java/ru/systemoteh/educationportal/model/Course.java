@@ -28,8 +28,13 @@ public class Course {
     @Column(name = "description")
     private String description;
 
-    @Transient
+    // @see Lecture.course
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Lecture> lectureList;
+
+//    TODO Test what's best for performance: @OneToMany ore @Transient
+//    @Transient
+//    private List<Lecture> lectureList;
 
     public Course() {
     }

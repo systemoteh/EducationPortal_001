@@ -112,7 +112,7 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','$2a$04$cMJ4Hhur5MQuyn41MbNRLOuYyhtq5VUucAf8uw0g.CXbjb.jtWWR2'),(2,'user','$2a$04$TA3vJwtPAcBzSXBVUFIRou9qymYuKd.qF97Ia8dc1tzRpTss9roTG');
+INSERT INTO `user` VALUES (1,'admin','$2a$04$cMJ4Hhur5MQuyn41MbNRLOuYyhtq5VUucAf8uw0g.CXbjb.jtWWR2'),(2,'user','$2a$04$TA3vJwtPAcBzSXBVUFIRou9qymYuKd.qF97Ia8dc1tzRpTss9roTG'),(33,'useruseruser','$2a$11$dQE/s.SE9TST3OouC4yqu.ggIhIEBsM9/8QpjCceWsh5rf2KS2XHa'),(34,'adminadminadmin','$2a$11$tfHzfWBEOCap92Gi8jF3SeHFNMcxeUuvKo2fBTVmkF9Hnt46xgR56');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +148,7 @@ CREATE TABLE `user___lecture` (
 
 LOCK TABLES `user___lecture` WRITE;
 /*!40000 ALTER TABLE `user___lecture` DISABLE KEYS */;
-INSERT INTO `user___lecture` VALUES (2,1),(2,2),(2,6),(2,9),(2,10);
+INSERT INTO `user___lecture` VALUES (2,10);
 /*!40000 ALTER TABLE `user___lecture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `user___role` (
 
 LOCK TABLES `user___role` WRITE;
 /*!40000 ALTER TABLE `user___role` DISABLE KEYS */;
-INSERT INTO `user___role` VALUES (1,1),(2,2);
+INSERT INTO `user___role` VALUES (1,1),(2,2),(33,2),(34,2);
 /*!40000 ALTER TABLE `user___role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,10 +197,13 @@ CREATE TABLE `user_detail` (
   `gender` tinyint(4) DEFAULT NULL,
   `country` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
+  `enabled` tinyint(4) NOT NULL DEFAULT '1',
+  `first_visit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_visit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_UNIQUE` (`user_id`),
   CONSTRAINT `user_detail___user___fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +212,7 @@ CREATE TABLE `user_detail` (
 
 LOCK TABLES `user_detail` WRITE;
 /*!40000 ALTER TABLE `user_detail` DISABLE KEYS */;
-INSERT INTO `user_detail` VALUES (1,1,'Alexey','Ogrenich','aleksei_0888@mail.ru',0,0,0,'Russia','Moscow'),(2,2,'Ivan','Ivanov','ivanov@yandex.ru',9640,0,0,'Byelorussia','Минск');
+INSERT INTO `user_detail` VALUES (1,1,'Alexey','Ogrenich','aleksei_0888@mail.ru',0,0,0,'Russia','Moscow',1,'2018-10-05 16:46:51','2018-10-05 16:46:51'),(2,2,'Ivan','Ivanov','ivanov@yandex.ru',9480,0,0,'Byelorussia','Минск',1,'2018-10-05 16:46:51','2018-10-05 16:46:51'),(3,33,'Sergey','Sergeev','sergeev@gmail.com',80,0,0,'Russia','Omsk',1,'2018-10-05 16:46:51','2018-10-05 16:46:51');
 /*!40000 ALTER TABLE `user_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,4 +256,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-02 19:02:26
+-- Dump completed on 2018-10-05 18:00:57

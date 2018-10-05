@@ -32,7 +32,7 @@ public class PortalController {
     private CourseService courseService;    // no used
 
     @Autowired
-    private LectureService lectureService;
+    private LectureService lectureService;  // no used
 
     /**
      * CourseBean is a @Component, therefore courseBean.getCourseList() never is null
@@ -62,7 +62,6 @@ public class PortalController {
 
         if (course != null) {
             courseBean.setSelectedCourse(course);
-            courseBean.getSelectedCourse().setLectureList(lectureService.getLecturesByCourseId(course.getId()));
             selectAnotherLectureInSelectedCourse();
             return EDUCATION;
         } else {

@@ -3,6 +3,8 @@ package ru.systemoteh.educationportal.bean;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import ru.systemoteh.educationportal.model.Lecture;
 import ru.systemoteh.educationportal.service.LectureService;
@@ -22,6 +24,7 @@ import java.io.Serializable;
 @ManagedBean(name = "lectureBean")
 @SessionScoped
 @Component
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class LectureBean implements Serializable {
 
     private Lecture selectedLecture;
@@ -75,8 +78,9 @@ public class LectureBean implements Serializable {
      */
     public void goToLecture(Lecture lecture) {
         this.selectedLecture = lecture;
+//        TODO
 //        if (selectedLecture == null) {
-//            selectedLecture = lectureService.getLectureByLink(courseBean.getSelectedCourse().getLink() + "-intro");
+//        selectedLecture = last visit lecture (from Cookie)
 //        }
 
         FacesContext context = FacesContext.getCurrentInstance();
@@ -91,12 +95,13 @@ public class LectureBean implements Serializable {
         }
     }
 
-    public boolean isBlockLecture() {    // TODO Refactor this. Call from page many times
+    // TODO Refactor this. Call from page many times. Call == lecture count
+    public boolean isBlockLecture() {
         return !userBean.getCurrentUser().getUserLectureList().contains(selectedLecture);
     }
 
     public void unblockLecture(ActionEvent actionEvent) {
-        long coins = userBean.getCurrentUser().getUserDetail().getCoins();
+        long coins = userBean.getCurrentUser().getUserDetail().getCoins();  // TODO UserDetail == null, if newUser
         if (coins >= 20 && lectureService.unblockLecture(
                 userBean.getCurrentUser().getId(), selectedLecture.getId())) {  // CALL StoredProcedure with OUT boolean param
             userBean.getCurrentUser().getUserDetail().setCoins(coins - 20); // local update TODO Refactor return OUT params from StoredProcedure

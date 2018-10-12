@@ -1,12 +1,13 @@
-package ru.systemoteh.educationportal.dao;
+package ru.systemoteh.educationportal.dao.impl;
 
+import ru.systemoteh.educationportal.dao.CourseDao;
 import ru.systemoteh.educationportal.model.Course;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class CourseDaoImpl implements CourseDao {
+public class CourseDaoJpaImpl implements CourseDao {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -20,4 +21,5 @@ public class CourseDaoImpl implements CourseDao {
     public List<Course> getAllCourses() {
         return entityManager.createQuery("FROM Course ").getResultList();
     }
+
 }

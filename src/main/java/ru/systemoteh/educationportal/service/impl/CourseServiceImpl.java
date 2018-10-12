@@ -1,8 +1,9 @@
-package ru.systemoteh.educationportal.service;
+package ru.systemoteh.educationportal.service.impl;
 
 import org.springframework.stereotype.Service;
 import ru.systemoteh.educationportal.dao.CourseDao;
 import ru.systemoteh.educationportal.model.Course;
+import ru.systemoteh.educationportal.service.CourseService;
 
 import java.util.List;
 

@@ -12,8 +12,10 @@
 
     <tx:annotation-driven/>
 
+    <!-- Nested package included -->
     <jpa:repositories base-package="ru.systemoteh.educationportal.dao"/>
-    <jpa:repositories base-package="ru.systemoteh.educationportal.dao.security"/>
+    <jpa:repositories base-package="ru.systemoteh.educationportal.repository"/>
+
 
     <!-- For connection to database -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -42,28 +44,34 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <!-- CourseDao bean -->
-    <bean id="courseDao" class="ru.systemoteh.educationportal.dao.CourseDaoImpl"/>
+    <!-- CourseDaoJpaImpl bean -->
+    <bean id="courseDaoJpaImpl" class="ru.systemoteh.educationportal.dao.impl.CourseDaoJpaImpl"/>
 
-    <!-- LectureDao bean -->
-    <bean id="lectureDao" class="ru.systemoteh.educationportal.dao.LectureDaoImpl"/>
+    <!-- LectureDaoMySqlImpl bean -->
+    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.dao.impl.LectureDaoMySqlImpl"/>
 
-    <!-- UserDao bean -->
-    <bean id="userDao" class="ru.systemoteh.educationportal.dao.UserDaoImpl"/>
+    <!-- LectureDaoNativeSqlImpl bean -->
+    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.dao.impl.LectureDaoNativeSqlImpl"/>
+
+    <!-- UserDaoMySqlImpl bean -->
+    <bean id="userDaoMySqlImpl" class="ru.systemoteh.educationportal.dao.impl.UserDaoMySqlImpl"/>
+
+    <!-- UserDaoNativeSqlImpl bean -->
+    <bean id="userDaoNativeSqlImpl" class="ru.systemoteh.educationportal.dao.impl.UserDaoNativeSqlImpl"/>
 
     <!-- CourseService bean -->
-    <bean id="courseService" class="ru.systemoteh.educationportal.service.CourseServiceImpl">
-        <property name="courseDao" ref="courseDao" />
+    <bean id="courseService" class="ru.systemoteh.educationportal.service.impl.CourseServiceImpl">
+        <property name="courseDao" ref="courseDaoJpaImpl"/>
     </bean>
 
     <!-- LectureService bean -->
-    <bean id="lectureService" class="ru.systemoteh.educationportal.service.LectureServiceImpl">
-        <property name="lectureDao" ref="lectureDao" />
+    <bean id="lectureService" class="ru.systemoteh.educationportal.service.impl.LectureServiceImpl">
+        <property name="lectureDao" ref="lectureDaoMySqlImpl"/>
     </bean>
 
     <!-- UserService bean -->
-    <bean id="userService" class="ru.systemoteh.educationportal.service.UserServiceImpl">
-        <property name="userDao" ref="userDao" />
+    <bean id="userService" class="ru.systemoteh.educationportal.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDaoMySqlImpl"/>
     </bean>
 
 </beans>

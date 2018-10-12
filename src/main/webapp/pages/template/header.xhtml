@@ -28,10 +28,11 @@
                         <c:when test="#{userBean.currentUser != null }">
                             <ul class="nav navbar-nav text-center">
                                 <li role="presentation"><a href="/welcome">Welcome Page</a></li>
-                                <li role="presentation"><a href="# ">Student: #{userBean.currentUser.username}</a></li>
-                                <li role="presentation"><a href="#">Coins:
+                                <li role="presentation"><a
+                                        href="/user-detail ">Student: #{userBean.currentUser.username}</a></li>
+                                <li role="presentation"><a href="/convert-exp-to-coins">Coins:
                                     <b>#{userBean.currentUser.userDetail.coins}</b></a></li>
-                                <li role="presentation"><a href="#">Exp:
+                                <li role="presentation"><a href="/convert-exp-to-coins">Exp:
                                     <b>#{userBean.currentUser.userDetail.experience}</b></a></li>
                                 <li role="presentation"><a
                                         href="/user-detail">UserDetails</a>

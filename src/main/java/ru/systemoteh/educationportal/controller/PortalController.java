@@ -82,6 +82,7 @@ public class PortalController {
         return EDUCATION;
     }
 
+
     // TODO http://localhost:777/pages/global/education.xhtml  FAIL
 
 }

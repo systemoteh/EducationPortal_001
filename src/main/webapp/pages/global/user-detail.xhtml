@@ -10,44 +10,65 @@
 <ui:composition template="#{facesContext.externalContext.requestContextPath}/pages/template/layout.xhtml">
 
     <ui:define name="center">
+        <div class="container-fluid">
+            <p class="text-center">
+                <h:form id="userDetailForm">
+                    <p:growl id="userDetailGrowl" life="3000"/>
+                    <h:panelGrid columns="2" cellpadding="5" cellspacing="15">
 
-        <h:form id="userDetailForm">
+                        <p:outputLabel for="id" value="ID: "/>
+                        <p:inputText id="id" value="#{userBean.currentUser.id}" disabled="true"/>
 
-            <h:panelGrid columns="2" cellpadding="6">
-                <p:outputLabel for="firstName" value="Name: "/>
-                <p:inputText id="firstName" value="#{userBean.currentUser.userDetail.firsName}" placeholder="Your Name"/>
+                        <p:outputLabel for="login" value="Login: "/>
+                        <p:inputText id="login" value="#{userBean.currentUser.username}" disabled="true"/>
 
-                <p:outputLabel for="lastName" value="Surname: "/>
-                <p:inputText id="lastName" value="#{userBean.currentUser.userDetail.lastName}" placeholder="Your Surname"/>
+                        <p:outputLabel for="firstName" value="Name: "/>
+                        <p:inputText id="firstName" value="#{userBean.currentUser.userDetail.firsName}"
+                                     placeholder="Your Name"/>
 
-                <!--<p:outputLabel for="phone" value="Phone:"/>-->
-                <!--<p:inputMask id="phone" value="#{maskView.phone}" mask="(999) 999-9999"/>-->
+                        <p:outputLabel for="lastName" value="Surname: "/>
+                        <p:inputText id="lastName" value="#{userBean.currentUser.userDetail.lastName}"
+                                     placeholder="Your Surname"/>
 
-                <!--<p:outputLabel for="phoneWithExt" value="Phone with Ext:"/>-->
-                <!--<p:inputMask id="phoneWithExt" value="#{maskView.phoneExt}" mask="(999) 999-9999? x99999"/>-->
+                        <p:outputLabel for="eMail" value="E-Mail: "/>
+                        <p:inputText id="eMail" value="#{userBean.currentUser.userDetail.email}"
+                                     placeholder="Your E-Mail"/>
 
-                <!--<p:outputLabel for="taxId" value="Tax Id:"/>-->
-                <!--<p:inputMask id="taxId" value="#{maskView.taxId}" mask="99-9999999"/>-->
+                        <p:outputLabel for="birthDate" value="Birth date: "/>
+                        <p:calendar id="birthDate" value="#{userBean.currentUser.userDetail.birthDate}"
+                                    pattern="dd.MM.yyyy">
+                            <p:ajax event="change"/>
+                        </p:calendar>
 
-                <!--<p:outputLabel for="ssn" value="SSN:"/>-->
-                <!--<p:inputMask id="ssn" value="#{maskView.ssn}" mask="999-99-9999"/>-->
+                        <p:outputLabel for="country" value="Country: "/>
+                        <p:inputText id="country" value="#{userBean.currentUser.userDetail.country}"
+                                     placeholder="Your Country"/>
 
-                <!--<p:outputLabel for="key" value="Product Key: "/>-->
-                <!--<p:inputMask id="key" value="#{maskView.productKey}" mask="a*-999-a999"/>-->
+                        <p:outputLabel for="city" value="City: "/>
+                        <p:inputText id="city" value="#{userBean.currentUser.userDetail.city}" placeholder="Your City"/>
 
-                <!--<p:outputLabel for="date" value="Date: " />-->
-                <!--<p:inputMask id="date" value="#{maskView.date}" mask="99/99/9999"/>-->
+                        <p:outputLabel for="firstVisit" value="First visit: "/>
+                        <p:inputText id="firstVisit" value="#{userBean.currentUser.userDetail.firstVisitSting}"
+                                     disabled="true"/>
 
-                <!--<p:outputLabel for="date1" value="Date: " />-->
-                <!--<p:inputMask id="date1" value="#{maskView.date}" mask="99/99/9999"/>-->
+                        <p:outputLabel for="lastVisit" value="Last visit: "/>
+                        <p:inputText id="lastVisit" value="#{userBean.currentUser.userDetail.lastVisitString}"
+                                     disabled="true"/>
 
-                <p:commandButton value="Submit" type="submit"/>
-                <p:commandButton value="Reset" type="reset"/>
+                    </h:panelGrid>
 
-            </h:panelGrid>
+                    <p:separator/>
 
-        </h:form>
+                    <p:commandButton value="Save" actionListener="#{userBean.saveUserDetail}" type="submit" ajax="false"
+                                     update=":userDetailForm:userDetailGrowl :@form"/> &nbsp;
+                    <!--<p:commandButton value="Cancel" type="reset"/> &nbsp;-->
+                    <p:commandButton value="Back" ajax="false"
+                                     actionListener="#{lectureBean.goToLecture(lectureBean.selectedLecture)}"/> &nbsp;
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
+                </h:form>
+            </p>
+        </div>
     </ui:define>
 
 </ui:composition>

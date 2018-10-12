@@ -7,14 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
-import ru.systemoteh.educationportal.bean.LectureBean;
 import ru.systemoteh.educationportal.bean.UserBean;
-import ru.systemoteh.educationportal.dao.UserDao;
-import ru.systemoteh.educationportal.dao.security.UserSecurityDao;
-import ru.systemoteh.educationportal.model.Lecture;
+import ru.systemoteh.educationportal.repository.UserRepository;
 import ru.systemoteh.educationportal.model.Role;
 import ru.systemoteh.educationportal.model.User;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,25 +23,20 @@ import java.util.Set;
 public class UserDetailsSecurityServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserSecurityDao userSecurityDao;  // Description in applicationContext-data.xml
-
-    @Autowired
-    private UserDao userDao;
+    private UserRepository userRepository;  // Description in applicationContext-data.xml
 
     @Autowired
     private UserBean userBean;
 
-    @Autowired
-    private LectureBean lectureBean;
-
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userSecurityDao.findByUsername(username);
+        User user = userRepository.findByUsername(username);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         for (Role role : user.getRoles()) {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
+        user.getUserDetail().setLastVisit(new Date());
         userBean.setCurrentUser(user);
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }

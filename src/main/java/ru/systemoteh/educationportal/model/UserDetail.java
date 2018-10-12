@@ -1,8 +1,9 @@
 package ru.systemoteh.educationportal.model;
 
-import ru.systemoteh.educationportal.dao.UserDaoImpl;
-
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -27,7 +28,11 @@ public class UserDetail {
     private String lastName;
 
     @Column(name = "e_mail")
-    private String eMail;
+    private String email;
+
+    @Column(name = "birth_date", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date birthDate;
 
     @Column(name = "coins")
     private Long coins;
@@ -44,9 +49,22 @@ public class UserDetail {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    @Column(name = "first_visit", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date firstVisit;
+
+    @Column(name = "last_visit", columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastVisit;
+
     @OneToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)    // @see this.userId  @Column(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
+    // @see this.userId  @Column(name = "user_id")
+
 
     public UserDetail() {
     }
@@ -83,12 +101,20 @@ public class UserDetail {
         this.lastName = lastName;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Long getCoins() {
@@ -131,6 +157,44 @@ public class UserDetail {
         this.city = city;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Date getFirstVisit() {
+        return firstVisit;
+    }
+
+    public void setFirstVisit(Date firstVisit) {
+        this.firstVisit = firstVisit;
+    }
+
+    public Date getLastVisit() {
+        return lastVisit;
+    }
+
+    public void setLastVisit(Date lastVisit) {
+        this.lastVisit = lastVisit;
+    }
+
+    /**********************************************************************************************
+     *  Methods
+     *********************************************************************************************/
+
+    public String getFirstVisitSting() {
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        return dateFormat.format(firstVisit);
+    }
+
+    public String getLastVisitString() {
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        return dateFormat.format(lastVisit);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -140,12 +204,12 @@ public class UserDetail {
                 Objects.equals(userId, that.userId) &&
                 Objects.equals(firsName, that.firsName) &&
                 Objects.equals(lastName, that.lastName) &&
-                Objects.equals(eMail, that.eMail);
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, firsName, lastName, eMail);
+        return Objects.hash(id, userId, firsName, lastName, email);
     }
 
     @Override
@@ -155,7 +219,7 @@ public class UserDetail {
                 ", userId=" + userId +
                 ", firsName='" + firsName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", eMail='" + eMail + '\'' +
+                ", eMail='" + email + '\'' +
                 ", coins=" + coins +
                 ", experience=" + experience +
                 ", gender=" + gender +

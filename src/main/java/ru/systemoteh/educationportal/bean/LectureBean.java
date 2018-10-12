@@ -77,19 +77,31 @@ public class LectureBean implements Serializable {
      * @param lecture
      */
     public void goToLecture(Lecture lecture) {
-        this.selectedLecture = lecture;
-//        TODO
+        if (lecture != null) {
+            this.selectedLecture = lecture;
+        }
+//        TODO: если пользователь был на какой-то странице и у него закончилось время сесии,
+//        TODO то после авторизации он будет переброшен на последнюю страницу (Spring Security)
+//        TODO  и у него не будет заполнен ни курс, ни лекция
+//        if (courseBean.getSelectedCourse() == null) {
+//          courseBean.setSelectedCourse(last visit course (from Cookie));
+//        } сейчас проверна на null есть ниже
 //        if (selectedLecture == null) {
-//        selectedLecture = last visit lecture (from Cookie)
-//        }
+//          selectedLecture = last visit lecture (from Cookie)
+//        } сейчас если лекция == null, то подгружается intro лекция
 
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
         try {
-            response.sendRedirect("/education"
-                    + "?course=" + courseBean.getSelectedCourse().getLink()
-                    + "&lecture=" + selectedLecture.getLink()
-            );
+            if (courseBean.getSelectedCourse() != null) {
+                response.sendRedirect("/education"
+                        + "?course=" + courseBean.getSelectedCourse().getLink()
+                        + "&lecture=" + selectedLecture.getLink()
+                );
+            } else {
+                response.sendRedirect("/index"
+                );
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,13 +113,12 @@ public class LectureBean implements Serializable {
     }
 
     public void unblockLecture(ActionEvent actionEvent) {
-        long coins = userBean.getCurrentUser().getUserDetail().getCoins();  // TODO UserDetail == null, if newUser
-        if (coins >= 20 && lectureService.unblockLecture(
-                userBean.getCurrentUser().getId(), selectedLecture.getId())) {  // CALL StoredProcedure with OUT boolean param
-            userBean.getCurrentUser().getUserDetail().setCoins(coins - 20); // local update TODO Refactor return OUT params from StoredProcedure
+        if (userBean.getCurrentUser().getUserDetail().getCoins() >= 30
+                && lectureService.unblockLecture(userBean.getCurrentUser().getId(), selectedLecture.getId())) {  // CALL StoredProcedure with OUT boolean param
+            userBean.getCurrentUser().getUserDetail().setCoins(userBean.getCurrentUser().getUserDetail().getCoins() - 30); // local update TODO Refactor return OUT params from StoredProcedure
             userBean.getCurrentUser().getUserLectureList().add(selectedLecture);    // local update TODO Refactor return OUT params from StoredProcedure
             RequestContext.getCurrentInstance().execute("PF('blockContent').hide()");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Lecture unblocked. -20 coins", null);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Lecture unblocked. -30 coins", null);
             FacesContext.getCurrentInstance().addMessage(null, message);
         } else {
             RequestContext.getCurrentInstance().execute("PF(':blockForm:blockContent').show()");

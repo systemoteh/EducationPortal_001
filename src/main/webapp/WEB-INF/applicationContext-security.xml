@@ -13,11 +13,12 @@
         <intercept-url pattern="/pages/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/pages/global/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/pages/lecture/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/pages/secure/*" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/pages/template/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/education" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/welcome" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/user-detail" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/convert-exp-to-coins" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
-        <intercept-url pattern="/pages/secure/*" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 
         <!-- To the root directory and sub-pages -->
@@ -35,7 +36,7 @@
     </http>
 
     <beans:bean id="userDetailsServiceImpl"
-                class="ru.systemoteh.educationportal.service.security.UserDetailsSecurityServiceImpl"></beans:bean>
+                class="ru.systemoteh.educationportal.prim.service.security.UserDetailsSecurityServiceImpl"></beans:bean>
 
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ru.systemoteh.educationportal.prim -->
+
+    <!-- CourseDaoJpaImpl bean -->
+    <bean id="courseDaoJpaImpl" class="ru.systemoteh.educationportal.prim.dao.impl.CourseDaoJpaImpl"/>
+
+    <!-- LectureDaoMySqlImpl bean -->
+    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoMySqlImpl"/>
+
+    <!-- LectureDaoNativeSqlImpl bean -->
+    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl"/>
+
+    <!-- UserDaoMySqlImpl bean -->
+    <bean id="userDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.UserDaoMySqlImpl">
+        <property name="userDao" ref="userDaoNativeSqlImpl"/>
+    </bean>
+
+    <!-- UserDaoNativeSqlImpl bean -->
+    <bean id="userDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.UserDaoNativeSqlImpl"/>
+
+    <!-- CourseService bean -->
+    <bean id="courseService" class="ru.systemoteh.educationportal.prim.service.impl.CourseServiceImpl">
+        <property name="courseDao" ref="courseDaoJpaImpl"/>
+    </bean>
+
+    <!-- LectureService bean -->
+    <bean id="lectureService" class="ru.systemoteh.educationportal.prim.service.impl.LectureServiceImpl">
+        <property name="lectureDao" ref="lectureDaoMySqlImpl"/>
+    </bean>
+
+    <!-- UserService bean -->
+    <bean id="userService" class="ru.systemoteh.educationportal.prim.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDaoMySqlImpl"/>
+    </bean>
+
+
+    <!-- ru.systemoteh.educationportal.serv -->
+
+    <!-- EmployeeDaoImpl bean -->
+    <bean id="employeeDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.EmployeeDaoImpl">
+        <property name="dataSource" ref="dataSourceServ"/>
+    </bean>
+
+    <!-- EmployeeService bean -->
+    <bean id="employeeService" class="ru.systemoteh.educationportal.serv.service.impl.EmployeeServiceImpl">
+        <property name="employeeDao" ref="employeeDaoImpl"/>
+    </bean>
+
+    <!-- ModelDaoImpl bean -->
+    <bean id="modelDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.ModelDaoImpl">
+        <property name="dataSource" ref="dataSourceServ"/>
+    </bean>
+
+    <!-- ModelService bean -->
+    <bean id="modelService" class="ru.systemoteh.educationportal.serv.service.impl.ModelServiceImpl">
+        <property name="modelDao" ref="modelDaoImpl"/>
+    </bean>
+
+</beans>
+

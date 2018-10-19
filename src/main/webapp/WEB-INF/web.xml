@@ -13,8 +13,8 @@
 
     <!-- PrimeFaces theme -->
     <!--<context-param>-->
-        <!--<param-name>primefaces.THEME</param-name>-->
-        <!--<param-value>midnight</param-value>-->
+    <!--<param-name>primefaces.THEME</param-name>-->
+    <!--<param-value>midnight</param-value>-->
     <!--</context-param>-->
 
     <!-- Spring Security filter -->
@@ -75,7 +75,7 @@
 
     <!-- JSF Servlet is defined to container -->
     <servlet>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -89,17 +89,27 @@
 
     <!-- Mapping with servlet and url for the http requests. -->
     <servlet-mapping>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.faces</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>facesServlet</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+
+    <!-- Session time in minutes -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>Faces Servlet</servlet-name>-->
+    <!--<url-pattern>/pages/global/*</url-pattern>-->
+    <!--</servlet-mapping>-->
 
     <!--Welcome page-->
     <welcome-file-list>

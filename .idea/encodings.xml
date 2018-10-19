@@ -2,23 +2,24 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/controller/LoginController.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/model/Role.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/model/User.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/repository/RoleRepository.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/repository/UserRepository.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/SecurityService.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/SecurityServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserDetailsSecurityServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserSecurityService.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/service/security/UserSecurityServiceImpl.java" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/validator/UserSecurityValidator.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/new/edu_portal_prim.pdf" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/LoginController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/repository/RoleRepository.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/repository/UserRepository.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/SecurityService.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/SecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserSecurityService.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserSecurityServiceImpl.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/validator/UserSecurityValidator.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/database.properties" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/edu_portal_serv.mysql.employee.sql" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/excel-pdf-config.xml" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/initDB.sql" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/logback.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/resources/validation.properties" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-data.xml" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-database.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-mvc.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-root.xml" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security.xml" charset="windows-1251" />

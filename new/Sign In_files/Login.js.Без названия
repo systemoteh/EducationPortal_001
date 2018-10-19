@@ -1,0 +1,1 @@
+function initLoginForm(){new Devart.Identity.Login}var Devart;!function(t){var i;!function(t){var i=function(){function i(){t.FormUtility.initializeSubmitForm(this,"#forgot-password",null,null)}return i}();t.Login=i}(i=t.Identity||(t.Identity={}))}(Devart||(Devart={})),Devart.Identity.FormUtility.checkAndLoadForm("#forgot-password",initLoginForm);

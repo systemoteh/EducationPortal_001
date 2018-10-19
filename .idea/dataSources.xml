@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL" uuid="c437cbb4-2b74-4308-835f-2d19ecf036a6">
+    <data-source source="LOCAL" name="edu_portal_prim" uuid="db36581b-5b82-48e4-87d8-9550773ea1ca">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>MySQL on localhost</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/education_portal</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/edu_portal_prim</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="edu_portal_serv" uuid="dd510f64-25b6-4926-b482-64b6663bb3c7">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/edu_portal_serv</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

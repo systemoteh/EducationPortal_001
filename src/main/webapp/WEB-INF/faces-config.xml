@@ -3,9 +3,7 @@
         xmlns="http://java.sun.com/xml/ns/javaee"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-
-http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
         version="2.0">
 
     <!-- JSF and Spring are integrated -->
@@ -15,17 +13,17 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
         </el-resolver>
     </application>
 
-     <!--&lt;!&ndash;configuration of navigation rules &ndash;&gt;-->
+    <!--&lt;!&ndash;configuration of navigation rules &ndash;&gt;-->
     <!--<navigation-rule>-->
-        <!--<from-view-id>/pages/index.xhtml</from-view-id>-->
-        <!--<navigation-case>-->
-            <!--<from-outcome>success</from-outcome>-->
-            <!--<to-view-id>/pages/success.xhtml</to-view-id>-->
-        <!--</navigation-case>-->
-        <!--<navigation-case>-->
-            <!--<from-outcome>error</from-outcome>-->
-            <!--<to-view-id>/pages/error.xhtml</to-view-id>-->
-        <!--</navigation-case>-->
+    <!--<from-view-id>/pages/index.xhtml</from-view-id>-->
+    <!--<navigation-case>-->
+    <!--<from-outcome>success</from-outcome>-->
+    <!--<to-view-id>/pages/success.xhtml</to-view-id>-->
+    <!--</navigation-case>-->
+    <!--<navigation-case>-->
+    <!--<from-outcome>error</from-outcome>-->
+    <!--<to-view-id>/pages/error.xhtml</to-view-id>-->
+    <!--</navigation-case>-->
     <!--</navigation-rule>-->
 
 </faces-config>

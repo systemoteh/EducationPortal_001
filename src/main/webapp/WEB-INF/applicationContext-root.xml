@@ -8,7 +8,9 @@
 
     <import resource="applicationContext-mvc.xml"/>
 
-    <import resource="applicationContext-data.xml"/>
+    <import resource="applicationContext-database.xml"/>
+
+    <import resource="applicationContext-dao.xml"/>
 
     <import resource="applicationContext-security.xml"/>
 

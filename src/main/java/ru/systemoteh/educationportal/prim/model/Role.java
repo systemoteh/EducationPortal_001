@@ -8,7 +8,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "role")
+@Table(schema = "edu_portal_prim", name = "role")
 public class Role {
 
     @Id

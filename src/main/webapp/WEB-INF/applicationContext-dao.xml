@@ -9,10 +9,14 @@
     <bean id="courseDaoJpaImpl" class="ru.systemoteh.educationportal.prim.dao.impl.CourseDaoJpaImpl"/>
 
     <!-- LectureDaoMySqlImpl bean -->
-    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoMySqlImpl"/>
+    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoMySqlImpl">
+        <property name="lectureDao" ref="lectureDaoNativeSqlImpl"/>
+    </bean>
 
     <!-- LectureDaoNativeSqlImpl bean -->
-    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl"/>
+    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl">
+        <property name="dataSource" ref="dataSourcePrim"/>
+    </bean>
 
     <!-- UserDaoMySqlImpl bean -->
     <bean id="userDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.UserDaoMySqlImpl">
@@ -50,14 +54,14 @@
         <property name="employeeDao" ref="employeeDaoImpl"/>
     </bean>
 
-    <!-- ModelDaoImpl bean -->
-    <bean id="modelDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.ModelDaoImpl">
+    <!-- EntityDaoImpl bean -->
+    <bean id="entityDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.EntityDaoImpl">
         <property name="dataSource" ref="dataSourceServ"/>
     </bean>
 
-    <!-- ModelService bean -->
-    <bean id="modelService" class="ru.systemoteh.educationportal.serv.service.impl.ModelServiceImpl">
-        <property name="modelDao" ref="modelDaoImpl"/>
+    <!-- EntityService bean -->
+    <bean id="entityService" class="ru.systemoteh.educationportal.serv.service.impl.EntityServiceImpl">
+        <property name="entityDao" ref="entityDaoImpl"/>
     </bean>
 
 </beans>

@@ -3,17 +3,25 @@ package ru.systemoteh.educationportal.prim.dao.impl;
 import org.springframework.transaction.annotation.Transactional;
 import ru.systemoteh.educationportal.prim.dao.LectureDao;
 import ru.systemoteh.educationportal.prim.model.Lecture;
+import ru.systemoteh.educationportal.prim.model.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
+import javax.sql.DataSource;
 import java.util.List;
 
 public class LectureDaoNativeSqlImpl implements LectureDao {
 
     @PersistenceContext(unitName = "edu_portal_prim")
     private EntityManager entityManager;
+
+    DataSource dataSource;
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     // no used
     public Lecture getLectureByLink(String link) {
@@ -37,14 +45,29 @@ public class LectureDaoNativeSqlImpl implements LectureDao {
         return query.getResultList();
     }
 
-    // no used
     public List<Lecture> getUserLectureListByUserId(Long userId) {
         Query query = entityManager.createNativeQuery(
                 "SELECT * FROM lecture l " +
-                        "INNER JOIN user_lecture ul " +
+                        "INNER JOIN user___lecture ul " +
                         "ON l.id = ul.lecture_id " +
-                        "WHERE ul.user_id = ?;"
-                , Lecture.class);
+                        "WHERE ul.user_id = ?",
+                Lecture.class);
+        query.setParameter(1, userId);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Test> getUserTestListByUserId(Long userId) {
+        Query query = entityManager.createNativeQuery(
+                "SELECT t.id, lecture_id, t.number, " +
+                        "t.type_id, t.name_eng, t.name_rus, " +
+                        "t.task, t.solution, ut.user_solution " +
+                        "FROM test t " +
+                        "INNER JOIN user___test ut " +
+                        "ON t.id = ut.test_id " +
+                        "WHERE ut.user_id = ?",
+                Test.class
+        );
         query.setParameter(1, userId);
         return query.getResultList();
     }

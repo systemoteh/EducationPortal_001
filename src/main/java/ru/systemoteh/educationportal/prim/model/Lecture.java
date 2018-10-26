@@ -1,6 +1,7 @@
 package ru.systemoteh.educationportal.prim.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "lecture")
+@Table(schema = "edu_portal_prim", name = "lecture")
 public class Lecture {
 
     @Id
@@ -24,6 +25,9 @@ public class Lecture {
     @Column(name = "course_id")
     private Integer courseId;
 
+    @Column(name = "test_type_id")
+    private Integer testTypeId;
+
     @Column(name = "cost")
     private Integer cost;
 
@@ -37,6 +41,10 @@ public class Lecture {
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)
     private Course course;
+
+    // @see Test.lecture
+    @OneToMany(mappedBy = "lecture", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Test> testList;
 
     public Lecture() {
     }
@@ -73,6 +81,14 @@ public class Lecture {
         this.courseId = courseId;
     }
 
+    public Integer getTestTypeId() {
+        return testTypeId;
+    }
+
+    public void setTestTypeId(Integer testTypeId) {
+        this.testTypeId = testTypeId;
+    }
+
     public Integer getCost() {
         return cost;
     }
@@ -95,6 +111,22 @@ public class Lecture {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public List<Test> getTestList() {
+        return testList;
+    }
+
+    public void setTestList(List<Test> testList) {
+        this.testList = testList;
     }
 
     @Override

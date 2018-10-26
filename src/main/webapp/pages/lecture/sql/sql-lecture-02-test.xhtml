@@ -8,23 +8,46 @@
       xmlns:p="http://primefaces.org/ui">
 <f:view>
 
-    <h:form id="testForm">
-        <p:inputTextarea rows="10" cols="50"
-                         queryDelay="750"
-                         minQueryLength="4" value="#{customQueryBean.customQuery}"/>
 
-        <p:commandButton value="Submit" actionListener="#{customQueryBean.getModelByCustomQuery}"
-                         type="submit" /> &nbsp;
+    <h:form id="testForm">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <p:inputTextarea value="#{customQueryBean.customQuery}" widgetVar="queryArea" id="queryArea"
+                                 rows="5" cols="100" queryDelay="750" minQueryLength="4"/>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <h:panelGrid columns="1" cellpadding="5" cellspacing="15">
+                    <p:commandButton value="Clear" actionListener="#{customQueryBean.clearQueryArea}"
+                                     update=":contentForm:content:testForm:queryArea :contentForm:content:testForm:entitiesTable :contentForm:content:testForm:rowCount"
+                                     type="submit"/>
+                    &nbsp;
+                    <p:commandButton value="Run the query without checking"
+                                     actionListener="#{customQueryBean.getEntitiesByCustomQuery}"
+                                     update=":contentForm:content:testForm:entitiesTable :contentForm:content:testForm:rowCount"
+                                     type="submit"/>
+                    &nbsp;
+                    <p:commandButton value="Run the query with checking"
+                                     actionListener="#{customQueryBean.getEntitiesByCustomQuery}"
+                                     update=":contentForm:content:testForm:entitiesTable :contentForm:content:testForm:rowCount"
+                                     type="submit"/>
+                    &nbsp;
+                </h:panelGrid>
+
+            </div>
+        </div>
 
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
+        <p:outputLabel id="rowCount" value="#{customQueryBean.entities.size()} row(s) returned"/>
 
-        <p:dataTable id="table" var="emp" value="#{employeeBean.employeeList}">
-            <p:columns value="#{employeeBean.selectedColumns}" var="colKey">
+        <p:dataTable id="entitiesTable" value="#{customQueryBean.entities}" var="entity"
+                     widgetVar="entitiesTable" reflow="true">
+            <p:columns value="#{customQueryBean.columnHeaders}" var="columnHeader">
                 <f:facet name="header">
-                    <h:outputText value="#{employeeBean.columnMap[colKey]}"/>
+                    <h:outputText value="#{columnHeader}"/>
                 </f:facet>
-                <h:outputText value="#{emp[colKey]}"/>
+                <h:outputText value="#{entity[columnHeader]}"/>
             </p:columns>
         </p:dataTable>
 

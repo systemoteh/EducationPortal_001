@@ -19,10 +19,10 @@ import java.util.Set;
 public class UserSecurityServiceImpl implements UserSecurityService {
 
     @Autowired
-    private UserRepository userRepository;  // Description in applicationContext-database.xml
+    private UserRepository userRepository;  // Description in applicationContext-persistence.xml
 
     @Autowired
-    private RoleRepository roleRepository;  // Description in applicationContext-database.xml
+    private RoleRepository roleRepository;  // Description in applicationContext-persistence.xml
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;  // Description in applicationContext-security.xml

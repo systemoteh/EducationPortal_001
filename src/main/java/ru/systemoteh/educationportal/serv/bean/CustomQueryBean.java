@@ -5,79 +5,115 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import ru.systemoteh.educationportal.serv.service.ModelService;
+import ru.systemoteh.educationportal.serv.service.EntityService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 @ManagedBean(name = "customQueryBean")
-@SessionScoped
+@RequestScoped
 @Component
-@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CustomQueryBean implements Serializable {
 
-    private String customQuery;
-    private Map<String, List<String>> models;
-    private List<String> selectedColumns = new ArrayList<>();
-
-
-    @ManagedProperty(value = "#{modelService}")
-    private ModelService modelService;
-
-    @Autowired(required = true)
-    @Qualifier(value = "modelService")
-    public void setModelService(ModelService modelService) {
-        this.modelService = modelService;
-    }
-
-    @PostConstruct
-    public void init() {
-
-    }
-
-    public void getModelByCustomQuery() {
-        if (customQuery.trim().length() == 0 || customQuery.isEmpty()) {
-            customQuery = "SELECT * FROM employee";
-        }
-        models = modelService.getModelsByCustomQuery(customQuery);
-        if (models.size() > 0) {
-
-        }
-    }
-
-
-    /**********************************************************************************************
-     *  Getters and Setters
-     *********************************************************************************************/
-
-    public String getCustomQuery() {
-        return customQuery;
-    }
-
-    public void setCustomQuery(String customQuery) {
-        this.customQuery = customQuery;
-    }
-
-    public Map<String, List<String>> getModels() {
-        return models;
-    }
-
-    public void setModels(Map<String, List<String>> models) {
-        this.models = models;
-    }
-
-    public List<String> getSelectedColumns() {
-        return selectedColumns;
-    }
-
-    public void setSelectedColumns(List<String> selectedColumns) {
-        this.selectedColumns = selectedColumns;
-    }
+//    private String customQuery = "";
+//    private List<String> customQueryList = new ArrayList<>(Arrays.asList("", "", ""));
+//    private List<Map<String, String>> entities = new ArrayList<>();
+//    private List<String> columnHeaders = new ArrayList<>(Arrays.asList("Headers are empty"));
+//    private int id01 = 0;
+//    private int id02 = 0;
+//    private boolean afterClear = false;
+//
+//    @ManagedProperty(value = "#{entityService}")
+//    private EntityService entityService;
+//
+//    @Autowired(required = true)
+//    @Qualifier(value = "entityService")
+//    public void setEntityService(EntityService entityService) {
+//        this.entityService = entityService;
+//    }
+//
+//    @PostConstruct
+//    public void init() {
+//
+//    }
+//
+//    public void getEntitiesByCustomQuery(int id) {
+//        columnHeaders.clear();
+//        if (customQueryList.get(id).trim().length() == 0 || customQueryList.get(id).isEmpty()) {
+//            columnHeaders.add("Headers are empty");
+//            entities.clear();
+//            return;
+//        } else {
+//            entities = entityService.getEntitiesByCustomQuery(customQueryList.get(id));
+//            if (entities.size() > 0) {
+//                columnHeaders.addAll(entities.get(0).keySet());
+//            }
+//        }
+//    }
+//
+//    public void clearQueryArea(int id) {
+//        customQueryList.set(id, "");
+//        columnHeaders.clear();
+//        columnHeaders.add("Headers are empty");
+//        entities.clear();
+//        afterClear = true;
+//        this.id02 = id;
+//    }
+//
+//
+//    /**********************************************************************************************
+//     *  Getters and Setters
+//     *********************************************************************************************/
+//
+//    public String getCustomQuery() {
+//        if (!afterClear) {
+//            if (id01 > customQueryList.size() - 1) {
+//                id01 = 0;
+//            }
+//            String s = customQueryList.get(id01);
+//            id01++;
+//            return s;
+//        } else {
+//            afterClear = false;
+//            return customQueryList.get(id02);
+//        }
+//    }
+//
+//    public void setCustomQuery(String customQuery) {
+//        if (id01 > customQueryList.size() - 1) {
+//            id01 = 0;
+//        }
+//        this.customQueryList.set(id01, customQuery);
+//        id01++;
+//    }
+//
+//    public List<String> getCustomQueryList() {
+//        return customQueryList;
+//    }
+//
+//    public void setCustomQueryList(List<String> customQueryList) {
+//        this.customQueryList = customQueryList;
+//    }
+//
+//    public List<Map<String, String>> getEntities() {
+//        return entities;
+//    }
+//
+//    public void setEntities(List<Map<String, String>> entities) {
+//        this.entities = entities;
+//    }
+//
+//    public List<String> getColumnHeaders() {
+//        return columnHeaders;
+//    }
+//
+//    public void setColumnHeaders(List<String> columnHeaders) {
+//        this.columnHeaders = columnHeaders;
+//    }
 }

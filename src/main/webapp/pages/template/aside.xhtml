@@ -11,7 +11,7 @@
 
     <h:form id="asideForm">
 
-        <p:dataTable var="lecture" value="#{courseBean.selectedCourse.lectureList}">
+        <p:dataTable var="lecture" value="#{courseBean.selectedCourse.lectureList}" emptyMessage="Select the course">
 
             <p:column headerText="Name Lecture">
                 <h:commandLink action="#{lectureBean.goToLecture(lecture)}" update=":contentForm">

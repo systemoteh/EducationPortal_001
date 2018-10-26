@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "course")
+@Table(schema = "edu_portal_prim", name = "course")
 public class Course {
 
     @Id

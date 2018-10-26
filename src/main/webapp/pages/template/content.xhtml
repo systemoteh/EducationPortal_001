@@ -13,7 +13,7 @@
     <h:form id="contentForm">
         <div id="page">
 
-            <p:accordionPanel id="content" multiple="true" activeIndex="0,1">
+            <p:accordionPanel id="content" multiple="true" activeIndex="">
                 <p:tab title="Video Lecture">
                     <div id="video">
                         <ui:insert name="video">
@@ -34,7 +34,7 @@
                     <div id="test">
                         <ui:insert name="test">
                             <ui:include
-                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{courseBean.selectedCourse.link}/#{lectureBean.selectedLecture.link}-test.xhtml"/>
+                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{courseBean.selectedCourse.link}/select-test.xhtml"/>
                         </ui:insert>
                     </div>
                 </p:tab>
@@ -47,10 +47,11 @@
     <h:form id="blockForm">
 
         <p:growl id="blockGrowl" life="3000"/>
-        <c:if test="#{lectureBean.blockLecture}">
-            <p:commandButton value="Unblock Lecture" id="unblockLecture"
+        <c:if test="#{lectureBean.isBlockLecture()}">
+            <p:commandButton value="Unblock Lecture. Cost #{lectureBean.selectedLecture.cost} coins" id="unblockLecture"
                              update=":blockForm :blockForm:blockGrowl :headerForm"
                              actionListener="#{lectureBean.unblockLecture}"/>
+            <p:commandButton id="pnlBtn2" value="Unblock Panel" type="button" onclick="PF('blockContent').hide()"/>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <p:blockUI block="contentForm" widgetVar="blockContent" blocked="true" />

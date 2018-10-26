@@ -10,7 +10,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "user")
+@Table(schema = "edu_portal_prim", name = "user")
 public class User {
 
     @Id
@@ -31,13 +31,20 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user___lecture", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "lecture_id"))
-    private List<Lecture> userLectureList;
-
     @OneToOne(mappedBy = "user")    // @see UserDetail.user
     private UserDetail userDetail;
+
+    //    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name = "user___lecture", joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "lecture_id"))
+    @Transient
+    private List<Lecture> userLectureList;
+
+    //    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "user___test", joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    @Transient
+    private List<Test> userTestList;
 
 
     public Long getId() {
@@ -94,6 +101,14 @@ public class User {
 
     public void setUserDetail(UserDetail userDetail) {
         this.userDetail = userDetail;
+    }
+
+    public List<Test> getUserTestList() {
+        return userTestList;
+    }
+
+    public void setUserTestList(List<Test> userTestList) {
+        this.userTestList = userTestList;
     }
 
     @Override

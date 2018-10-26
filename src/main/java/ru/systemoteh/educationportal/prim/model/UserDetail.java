@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "user_detail")
+@Table(schema = "edu_portal_prim", name = "user_detail")
 public class UserDetail {
 
     @Id

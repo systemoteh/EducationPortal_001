@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:form id="testForm">
+
+        <p:accordionPanel value="#{courseBean.courseList}" var="course" id="accord" activeIndex="">
+            <p:tab title="#{course.nameEng}" id="tab#{course.id}">
+
+                <!--<h:form id="testForm-#{course.id}">-->
+
+                <div class="row" id="div-#{course.id}">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <p:inputTextarea value="#{customQueryBean.customQuery}" widgetVar="queryArea" id="queryArea"
+                                         rows="5" cols="100" queryDelay="750" minQueryLength="4"/>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <h:panelGrid columns="1" cellpadding="5" cellspacing="15">
+                            <p:commandButton id="clear-#{course.id}" value="Clear" type="submit"
+                                             actionListener="#{customQueryBean.clearQueryArea(course.id - 1)}"
+                                             update=":contentForm:content:testForm:accord:#{course.id - 1}:queryArea :contentForm:content:testForm:accord:#{course.id - 1}:rowCount :contentForm:content:testForm:accord:#{course.id - 1}:entitiesTable"/>
+                            &nbsp;
+                            <p:commandButton value="Run the query without checking" type="submit"
+                                             actionListener="#{customQueryBean.getEntitiesByCustomQuery(course.id - 1)}"
+                                             update=":contentForm:content:testForm:accord:#{course.id - 1}:rowCount :contentForm:content:testForm:accord:#{course.id - 1}:entitiesTable"/>
+                            &nbsp;
+                            <p:commandButton value="Run the query with checking" type="submit"
+                                             actionListener="#{customQueryBean.getEntitiesByCustomQuery(course.id - 1)}"
+                                             update=":contentForm:content:testForm:accord:#{course.id - 1}:rowCount :contentForm:content:testForm:accord:#{course.id - 1}:entitiesTable"/>
+                            &nbsp;
+                        </h:panelGrid>
+
+                    </div>
+                </div>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <p:outputLabel id="rowCount" value="#{customQueryBean.entities.size()} row(s) returned"/>
+
+                <p:dataTable id="entitiesTable" value="#{customQueryBean.entities}" var="entity"
+                             widgetVar="entitiesTable" reflow="true">
+                    <p:columns value="#{customQueryBean.columnHeaders}" var="columnHeader">
+                        <f:facet name="header">
+                            <h:outputText value="#{columnHeader}"/>
+                        </f:facet>
+                        <h:outputText value="#{entity[columnHeader]}"/>
+                    </p:columns>
+
+                </p:dataTable>
+
+                <!--</h:form>-->
+            </p:tab>
+        </p:accordionPanel>
+
+    </h:form>
+</f:view>
+
+</html>

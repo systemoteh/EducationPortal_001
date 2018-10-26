@@ -34,7 +34,7 @@ CREATE TABLE `course` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `course_name_eng_uindex` (`name_eng`),
   UNIQUE KEY `course_name_rus_uindex` (`name_rus`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'SQL','SQL','sql','course.png',''),(2,'Java','Java','java','course.png','');
+INSERT INTO `course` VALUES (1,'T-SQL','T-SQL','sql','course.png',''),(2,'Java','Java','java','course.png',''),(3,'PostgreSQL','PostgreSQL','postgresql','course.png','PostgreSQL'),(4,'MySQL','MySQL','mysql','course.png','MySQL');
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,8 @@ CREATE TABLE `lecture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name_eng` varchar(50) NOT NULL,
   `name_rus` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `course_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL DEFAULT '1',
+  `test_type_id` int(11) NOT NULL DEFAULT '1',
   `cost` int(11) NOT NULL DEFAULT '50',
   `link` varchar(50) NOT NULL DEFAULT 'intro',
   `image` varchar(50) NOT NULL DEFAULT 'lecture.png',
@@ -67,7 +68,9 @@ CREATE TABLE `lecture` (
   UNIQUE KEY `lecture_name_eng_uindex` (`name_eng`),
   UNIQUE KEY `lecture_name_rus_uindex` (`name_rus`),
   KEY `lecture_course_id_fk` (`course_id`),
-  CONSTRAINT `lecture_course_id_fk` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
+  KEY `lecture_test_id_fk_idx` (`test_type_id`),
+  CONSTRAINT `lecture_course_id_fk` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`),
+  CONSTRAINT `lecture_test_type_id_fk` FOREIGN KEY (`test_type_id`) REFERENCES `test_type` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,7 +80,7 @@ CREATE TABLE `lecture` (
 
 LOCK TABLES `lecture` WRITE;
 /*!40000 ALTER TABLE `lecture` DISABLE KEYS */;
-INSERT INTO `lecture` VALUES (1,'sql lecture 01','sql 1',1,50,'sql-lecture-01','lecture.png',''),(2,'sql lecture 02','sql 2',1,300,'sql-lecture-02','lecture.png',''),(6,'java lecture 01','java lecture 01',2,50,'java-lecture-01','lecture.png','java lecture 01'),(7,'java lecture 02','java lecture 02',2,50,'java-lecture-02','lecture.png','java lecture 02'),(9,'sql-intro','sql-intro',1,50,'sql-intro','lecture.png','sql-intro'),(10,'java-intro','java-intro',2,50,'java-intro','lecture.png','java-intro');
+INSERT INTO `lecture` VALUES (1,'sql lecture 01','sql 1',1,1,50,'sql-lecture-01','lecture.png',''),(2,'sql lecture 02','sql 2',1,1,50,'sql-lecture-02','lecture.png',''),(6,'java lecture 01','java lecture 01',2,1,50,'java-lecture-01','lecture.png','java lecture 01'),(7,'java lecture 02','java lecture 02',2,1,50,'java-lecture-02','lecture.png','java lecture 02'),(9,'sql-intro','sql-intro',1,1,50,'sql-intro','lecture.png','sql-intro'),(10,'java-intro','java-intro',2,1,50,'java-intro','lecture.png','java-intro');
 /*!40000 ALTER TABLE `lecture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,6 +106,65 @@ LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 INSERT INTO `role` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lecture_id` int(11) NOT NULL DEFAULT '1',
+  `number` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `name_eng` varchar(50) NOT NULL,
+  `name_rus` varchar(50) NOT NULL,
+  `task` mediumtext NOT NULL,
+  `solution` mediumtext,
+  PRIMARY KEY (`lecture_id`,`number`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `test_test_type_id_idx` (`type_id`),
+  KEY `test_lecture_id_fk_idx` (`lecture_id`),
+  CONSTRAINT `test_lecture_id_fk` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`),
+  CONSTRAINT `test_test_type_id_fk` FOREIGN KEY (`type_id`) REFERENCES `test_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `test`
+--
+
+LOCK TABLES `test` WRITE;
+/*!40000 ALTER TABLE `test` DISABLE KEYS */;
+INSERT INTO `test` VALUES (1,1,1,1,'select 01','select 01','Произвести выборку всех столбцов и всех записей из таблицы eployee','select * from employee'),(2,1,2,1,'select 02','select 02',' <b>#{userBean.currentUser.userDetail.coins}</b>',NULL),(3,1,3,1,'java 01','java 01','import',NULL),(4,2,1,1,'sql','sql','sql',NULL),(6,2,2,1,'sql','sql','sql',NULL),(8,2,3,1,'sql','sql','sql',NULL),(5,9,1,1,'sql','sql','sql',NULL),(7,9,2,1,'sql','sql','sql',NULL),(9,9,3,1,'sql','sql','sql',NULL);
+/*!40000 ALTER TABLE `test` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `test_type`
+--
+
+DROP TABLE IF EXISTS `test_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `test_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `test_type`
+--
+
+LOCK TABLES `test_type` WRITE;
+/*!40000 ALTER TABLE `test_type` DISABLE KEYS */;
+INSERT INTO `test_type` VALUES (1,'select');
+/*!40000 ALTER TABLE `test_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -160,8 +222,8 @@ CREATE TABLE `user___lecture` (
   `lecture_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`,`lecture_id`),
   KEY `user_lecture-lecture_fk_idx` (`lecture_id`),
-  CONSTRAINT `user_lecture-lecture_fk` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_lecture_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `user___lecture_lecture_fk` FOREIGN KEY (`lecture_id`) REFERENCES `lecture` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user___lecture_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -171,7 +233,7 @@ CREATE TABLE `user___lecture` (
 
 LOCK TABLES `user___lecture` WRITE;
 /*!40000 ALTER TABLE `user___lecture` DISABLE KEYS */;
-INSERT INTO `user___lecture` VALUES (1,2),(1,7);
+INSERT INTO `user___lecture` VALUES (1,1),(1,2),(1,9);
 /*!40000 ALTER TABLE `user___lecture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,8 +249,8 @@ CREATE TABLE `user___role` (
   `role_id` int(11) NOT NULL,
   UNIQUE KEY `user_id` (`user_id`,`role_id`),
   KEY `user___role_ibfk_2` (`role_id`),
-  CONSTRAINT `user___role_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user___role_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `user___role_role_id_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user___role_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -200,6 +262,38 @@ LOCK TABLES `user___role` WRITE;
 /*!40000 ALTER TABLE `user___role` DISABLE KEYS */;
 INSERT INTO `user___role` VALUES (1,1),(2,2),(37,2),(38,2),(39,2),(40,2),(41,2);
 /*!40000 ALTER TABLE `user___role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user___test`
+--
+
+DROP TABLE IF EXISTS `user___test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user___test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `test_id` int(11) NOT NULL,
+  `user_solution` mediumtext,
+  `date_solution` datetime DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`test_id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `user___test_user_id_fk_idx` (`user_id`),
+  KEY `user___test_test_id_fk_idx` (`test_id`),
+  CONSTRAINT `user___test_test_id_fk` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user___test_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user___test`
+--
+
+LOCK TABLES `user___test` WRITE;
+/*!40000 ALTER TABLE `user___test` DISABLE KEYS */;
+INSERT INTO `user___test` VALUES (4,1,1,'delay null','2000-10-10 00:00:00'),(5,1,2,'delay null',NULL),(6,1,3,'delay null',NULL);
+/*!40000 ALTER TABLE `user___test` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -237,7 +331,7 @@ CREATE TABLE `user_detail` (
 
 LOCK TABLES `user_detail` WRITE;
 /*!40000 ALTER TABLE `user_detail` DISABLE KEYS */;
-INSERT INTO `user_detail` VALUES (1,1,'Alexey','Ogrenich','aleksei_0888@mail.ru','1988-08-15 00:00:00',660,1400,0,'Russia','Moscow',1,'2018-10-05 16:46:51','2018-10-09 12:54:41'),(2,2,'Ivan','Ivanov','aleksei_0888@mail.ru1','1990-09-17 00:00:00',0,150,0,'Byelorussia','Minsk',1,'2018-10-05 16:46:51','2018-10-05 16:46:51'),(5,37,'Alexey','Another','aleksei_0888@gmail.com','1989-08-15 00:00:00',210,85,0,'Russia','Moscow',1,'2018-10-10 10:37:12','2018-10-10 10:37:12'),(6,38,'useruseruser',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-10 12:36:39','2018-10-10 12:36:39'),(7,39,'rerwerwerwe',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-10 16:28:25','2018-10-10 16:28:25'),(8,40,'gdgdfgdfgdfg','gdgdfgdfgdfg','gdgdfgdfgdfg',NULL,210,85,0,'gdgdfgdfgdfg','gdgdfgdfgdfg',1,'2018-10-11 13:09:24','2018-10-11 13:09:24'),(9,41,'dsddasdqweqweqwdas',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-12 11:17:54','2018-10-12 11:17:54');
+INSERT INTO `user_detail` VALUES (1,1,'Alexey','Ogrenich','aleksei_0888@mail.ru','1988-08-15 00:00:00',80,1323,0,'Russia','Moscow',1,'2018-10-05 16:46:51','2018-10-09 12:54:41'),(2,2,'Ivan','Ivanov','aleksei_0888@mail.ru1','1990-09-17 00:00:00',0,115,0,'Byelorussia','Minsk',1,'2018-10-05 16:46:51','2018-10-05 16:46:51'),(5,37,'Alexey','Another','aleksei_0888@gmail.com','1989-08-15 00:00:00',210,85,0,'Russia','Moscow',1,'2018-10-10 10:37:12','2018-10-10 10:37:12'),(6,38,'useruseruser',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-10 12:36:39','2018-10-10 12:36:39'),(7,39,'rerwerwerwe',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-10 16:28:25','2018-10-10 16:28:25'),(8,40,'gdgdfgdfgdfg','gdgdfgdfgdfg','gdgdfgdfgdfg',NULL,210,85,0,'gdgdfgdfgdfg','gdgdfgdfgdfg',1,'2018-10-11 13:09:24','2018-10-11 13:09:24'),(9,41,'dsddasdqweqweqwdas',NULL,NULL,NULL,210,85,0,NULL,NULL,1,'2018-10-12 11:17:54','2018-10-12 11:17:54');
 /*!40000 ALTER TABLE `user_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,4 +438,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-19 19:17:14
+-- Dump completed on 2018-10-26 19:11:27

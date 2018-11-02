@@ -2,9 +2,8 @@ package ru.systemoteh.educationportal.prim.dao.impl;
 
 import org.springframework.transaction.annotation.Transactional;
 import ru.systemoteh.educationportal.prim.dao.LectureDao;
-import ru.systemoteh.educationportal.prim.dao.UserDao;
-import ru.systemoteh.educationportal.prim.model.Lecture;
-import ru.systemoteh.educationportal.prim.model.Test;
+import ru.systemoteh.educationportal.prim.model.UserLecture;
+import ru.systemoteh.educationportal.prim.model.UserTest;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,18 +20,18 @@ public class LectureDaoMySqlImpl implements LectureDao {
     }
 
     @Override
-    public List<Lecture> getUserLectureListByUserId(Long userId) {
+    public List<UserLecture> getUserLectureListByUserId(Long userId) {
         return lectureDao.getUserLectureListByUserId(userId);
     }
 
     @Override
-    public List<Test> getUserTestListByUserId(Long userId) {
+    public List<UserTest> getUserTestListByUserId(Long userId) {
         return lectureDao.getUserTestListByUserId(userId);
     }
 
     @Override
     @Transactional(value = "edu_portal_prim")
-    public boolean unblockLecture(Long userId, int lectureId) {
+    public boolean unblockLecture(Long userId, Long lectureId) {
         StoredProcedureQuery procedureQuery = entityManager.
                 createStoredProcedureQuery("unblock_lecture")
                 .registerStoredProcedureParameter(1, Long.class, ParameterMode.IN)

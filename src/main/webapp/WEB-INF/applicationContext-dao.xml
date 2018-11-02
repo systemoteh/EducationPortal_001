@@ -14,8 +14,11 @@
     </bean>
 
     <!-- LectureDaoNativeSqlImpl bean -->
-    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl">
-        <property name="dataSource" ref="dataSourcePrim"/>
+    <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl"/>
+
+    <!-- TestDaoImpl bean -->
+    <bean id="testDaoImpl" class="ru.systemoteh.educationportal.prim.dao.impl.TestDaoImpl">
+        <property name="dataSource" ref="dataSourceServ"/>
     </bean>
 
     <!-- UserDaoMySqlImpl bean -->
@@ -33,7 +36,12 @@
 
     <!-- LectureService bean -->
     <bean id="lectureService" class="ru.systemoteh.educationportal.prim.service.impl.LectureServiceImpl">
-        <property name="lectureDao" ref="lectureDaoMySqlImpl"/>
+        <property name="lectureDao" ref="lectureDaoNativeSqlImpl"/>
+    </bean>
+
+    <!-- TestService bean -->
+    <bean id="testService" class="ru.systemoteh.educationportal.prim.service.impl.TestServiceImpl">
+        <property name="testDao" ref="testDaoImpl"/>
     </bean>
 
     <!-- UserService bean -->
@@ -44,25 +52,7 @@
 
     <!-- ru.systemoteh.educationportal.serv -->
 
-    <!-- EmployeeDaoImpl bean -->
-    <bean id="employeeDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.EmployeeDaoImpl">
-        <property name="dataSource" ref="dataSourceServ"/>
-    </bean>
 
-    <!-- EmployeeService bean -->
-    <bean id="employeeService" class="ru.systemoteh.educationportal.serv.service.impl.EmployeeServiceImpl">
-        <property name="employeeDao" ref="employeeDaoImpl"/>
-    </bean>
-
-    <!-- EntityDaoImpl bean -->
-    <bean id="entityDaoImpl" class="ru.systemoteh.educationportal.serv.dao.impl.EntityDaoImpl">
-        <property name="dataSource" ref="dataSourceServ"/>
-    </bean>
-
-    <!-- EntityService bean -->
-    <bean id="entityService" class="ru.systemoteh.educationportal.serv.service.impl.EntityServiceImpl">
-        <property name="entityDao" ref="entityDaoImpl"/>
-    </bean>
 
 </beans>
 

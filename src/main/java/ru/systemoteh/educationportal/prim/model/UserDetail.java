@@ -1,5 +1,10 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,6 +17,10 @@ import java.util.Objects;
 
 @Entity
 @Table(schema = "edu_portal_prim", name = "user_detail")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class UserDetail {
 
     @Id
@@ -181,6 +190,38 @@ public class UserDetail {
         this.lastVisit = lastVisit;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserDetail)) return false;
+        UserDetail that = (UserDetail) o;
+        return gender == that.gender &&
+                enabled == that.enabled &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(userId, that.userId) &&
+                Objects.equals(firsName, that.firsName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(birthDate, that.birthDate) &&
+                Objects.equals(coins, that.coins) &&
+                Objects.equals(experience, that.experience) &&
+                Objects.equals(country, that.country) &&
+                Objects.equals(city, that.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, firsName, lastName, email, birthDate, coins, experience, gender, country, city, enabled);
+    }
+
     /**********************************************************************************************
      *  Methods
      *********************************************************************************************/
@@ -195,36 +236,5 @@ public class UserDetail {
         return dateFormat.format(lastVisit);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserDetail)) return false;
-        UserDetail that = (UserDetail) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(userId, that.userId) &&
-                Objects.equals(firsName, that.firsName) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(email, that.email);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userId, firsName, lastName, email);
-    }
-
-    @Override
-    public String toString() {
-        return "UserDetail{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", firsName='" + firsName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", eMail='" + email + '\'' +
-                ", coins=" + coins +
-                ", experience=" + experience +
-                ", gender=" + gender +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                '}';
-    }
 }

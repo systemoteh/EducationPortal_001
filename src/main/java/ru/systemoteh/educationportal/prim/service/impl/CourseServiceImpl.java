@@ -3,6 +3,7 @@ package ru.systemoteh.educationportal.prim.service.impl;
 import org.springframework.stereotype.Service;
 import ru.systemoteh.educationportal.prim.dao.CourseDao;
 import ru.systemoteh.educationportal.prim.model.Course;
+import ru.systemoteh.educationportal.prim.model.UserCourse;
 import ru.systemoteh.educationportal.prim.service.CourseService;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course getCourseById(Integer id) {
+    public Course getCourseById(Long id) {
         return courseDao.getCourseById(id);
     }
 
@@ -27,4 +28,13 @@ public class CourseServiceImpl implements CourseService {
         return courseDao.getAllCourses();
     }
 
+    @Override
+    public List<UserCourse> getUserCourseListByUserId(Long userId) {
+        return courseDao.getUserCourseListByUserId(userId);
+    }
+
+    @Override
+    public UserCourse getUserCourseByUserIdAndCourseId(Long userId, Long courseId) {
+        return courseDao.getUserCourseByUserIdAndCourseId(userId, courseId);
+    }
 }

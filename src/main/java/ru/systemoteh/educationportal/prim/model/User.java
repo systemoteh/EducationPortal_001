@@ -1,5 +1,10 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +16,10 @@ import java.util.Set;
 
 @Entity
 @Table(schema = "edu_portal_prim", name = "user")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class User {
 
     @Id
@@ -34,18 +43,17 @@ public class User {
     @OneToOne(mappedBy = "user")    // @see UserDetail.user
     private UserDetail userDetail;
 
-    //    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "user___lecture", joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "lecture_id"))
     @Transient
-    private List<Lecture> userLectureList;
+    private List<UserCourse> userCourseList;
 
-    //    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "user___test", joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "test_id"))
     @Transient
-    private List<Test> userTestList;
+    private List<UserLecture> userLectureList;
 
+    @Transient
+    private List<UserTest> userTestList;
+
+    public User() {
+    }
 
     public Long getId() {
         return id;
@@ -87,14 +95,6 @@ public class User {
         this.roles = roles;
     }
 
-    public List<Lecture> getUserLectureList() {
-        return userLectureList;
-    }
-
-    public void setUserLectureList(List<Lecture> userLectureList) {
-        this.userLectureList = userLectureList;
-    }
-
     public UserDetail getUserDetail() {
         return userDetail;
     }
@@ -103,12 +103,28 @@ public class User {
         this.userDetail = userDetail;
     }
 
-    public List<Test> getUserTestList() {
+    public List<UserLecture> getUserLectureList() {
+        return userLectureList;
+    }
+
+    public void setUserLectureList(List<UserLecture> userLectureList) {
+        this.userLectureList = userLectureList;
+    }
+
+    public List<UserTest> getUserTestList() {
         return userTestList;
     }
 
-    public void setUserTestList(List<Test> userTestList) {
+    public void setUserTestList(List<UserTest> userTestList) {
         this.userTestList = userTestList;
+    }
+
+    public List<UserCourse> getUserCourseList() {
+        return userCourseList;
+    }
+
+    public void setUserCourseList(List<UserCourse> userCourseList) {
+        this.userCourseList = userCourseList;
     }
 
     @Override
@@ -117,19 +133,13 @@ public class User {
         if (!(o instanceof User)) return false;
         User user = (User) o;
         return Objects.equals(id, user.id) &&
-                Objects.equals(username, user.username);
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(confirmPassword, user.confirmPassword);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                '}';
+        return Objects.hash(id, username, password, confirmPassword);
     }
 }

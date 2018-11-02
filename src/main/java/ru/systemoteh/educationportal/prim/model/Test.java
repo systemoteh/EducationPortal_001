@@ -1,23 +1,32 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(schema = "edu_portal_prim", name = "test")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "lecture_id")
-    private Integer lectureId;
+    private Long lectureId;
 
-    @Column(name = "number")
-    private Integer number;
+    @Column(name = "order_by")
+    private Long orderBy;
 
     @Column(name = "type_id")
-    private Integer typeId;
+    private Long typeId;
 
     @Column(name = "name_eng")
     private String nameEng;
@@ -36,41 +45,38 @@ public class Test {
     @JoinColumn(name = "lecture_id", nullable = false, insertable = false, updatable = false)
     private Lecture lecture;
 
-    @Transient
-    private String userSolution;
-
     public Test() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getLectureId() {
+    public Long getLectureId() {
         return lectureId;
     }
 
-    public void setLectureId(Integer lectureId) {
+    public void setLectureId(Long lectureId) {
         this.lectureId = lectureId;
     }
 
-    public Integer getNumber() {
-        return number;
+    public Long getOrderBy() {
+        return orderBy;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setOrderBy(Long orderBy) {
+        this.orderBy = orderBy;
     }
 
-    public Integer getTypeId() {
+    public Long getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Integer typeId) {
+    public void setTypeId(Long typeId) {
         this.typeId = typeId;
     }
 
@@ -114,14 +120,6 @@ public class Test {
         this.lecture = lecture;
     }
 
-    public String getUserSolution() {
-        return userSolution;
-    }
-
-    public void setUserSolution(String userSolution) {
-        this.userSolution = userSolution;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,17 +127,16 @@ public class Test {
         Test test = (Test) o;
         return Objects.equals(id, test.id) &&
                 Objects.equals(lectureId, test.lectureId) &&
-                Objects.equals(number, test.number) &&
+                Objects.equals(orderBy, test.orderBy) &&
                 Objects.equals(typeId, test.typeId) &&
                 Objects.equals(nameEng, test.nameEng) &&
                 Objects.equals(nameRus, test.nameRus) &&
                 Objects.equals(task, test.task) &&
-                Objects.equals(solution, test.solution) &&
-                Objects.equals(userSolution, test.userSolution);
+                Objects.equals(solution, test.solution);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lectureId, number, typeId, nameEng, nameRus, task, solution, userSolution);
+        return Objects.hash(id, lectureId, orderBy, typeId, nameEng, nameRus, task, solution);
     }
 }

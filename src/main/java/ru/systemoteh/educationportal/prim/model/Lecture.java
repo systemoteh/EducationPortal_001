@@ -1,5 +1,10 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -10,11 +15,14 @@ import java.util.Objects;
 
 @Entity
 @Table(schema = "edu_portal_prim", name = "lecture")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class Lecture {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name_eng")
     private String nameEng;
@@ -23,13 +31,16 @@ public class Lecture {
     private String nameRus;
 
     @Column(name = "course_id")
-    private Integer courseId;
+    private Long courseId;
+
+    @Column(name = "order_by")
+    private Long orderBy;
 
     @Column(name = "test_type_id")
-    private Integer testTypeId;
+    private Long testTypeId;
 
     @Column(name = "cost")
-    private Integer cost;
+    private Long cost;
 
     @Column(name = "link")
     private String link;
@@ -49,11 +60,11 @@ public class Lecture {
     public Lecture() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,27 +84,35 @@ public class Lecture {
         this.nameRus = nameRus;
     }
 
-    public Integer getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Integer courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 
-    public Integer getTestTypeId() {
+    public Long getOrderBy() {
+        return orderBy;
+    }
+
+    public void setOrderBy(Long orderBy) {
+        this.orderBy = orderBy;
+    }
+
+    public Long getTestTypeId() {
         return testTypeId;
     }
 
-    public void setTestTypeId(Integer testTypeId) {
+    public void setTestTypeId(Long testTypeId) {
         this.testTypeId = testTypeId;
     }
 
-    public Integer getCost() {
+    public Long getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(Long cost) {
         this.cost = cost;
     }
 
@@ -138,24 +157,16 @@ public class Lecture {
                 Objects.equals(nameEng, lecture.nameEng) &&
                 Objects.equals(nameRus, lecture.nameRus) &&
                 Objects.equals(courseId, lecture.courseId) &&
+                Objects.equals(orderBy, lecture.orderBy) &&
+                Objects.equals(testTypeId, lecture.testTypeId) &&
+                Objects.equals(cost, lecture.cost) &&
                 Objects.equals(link, lecture.link) &&
-                Objects.equals(description, lecture.description);
+                Objects.equals(description, lecture.description) &&
+                Objects.equals(course, lecture.course);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nameEng, nameRus, courseId, link, description);
-    }
-
-    @Override
-    public String toString() {
-        return "Lecture{" +
-                "id=" + id +
-                ", nameEng='" + nameEng + '\'' +
-                ", nameRus='" + nameRus + '\'' +
-                ", courseId=" + courseId +
-                ", link='" + link + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return Objects.hash(id, nameEng, nameRus, courseId, orderBy, testTypeId, cost, link, description, course);
     }
 }

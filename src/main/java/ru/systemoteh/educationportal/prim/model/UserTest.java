@@ -1,25 +1,30 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "user___test", schema = "edu_portal_prim")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class UserTest implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    @Id
     @Column(name = "user_id")
-    private Integer userId;
-
+    private Long userId;
     @Id
     @Column(name = "test_id")
-    private Integer testId;
+    private Long testId;
 
     @Basic
     @Column(name = "user_solution")
@@ -29,33 +34,31 @@ public class UserTest implements Serializable {
     @Column(name = "date_solution")
     private Timestamp dateSolution;
 
+    @Basic
+    @Column(name = "status_id")
+    private Long statusId;
 
-    public Integer getId() {
-        return id;
+    @Transient
+    private UserLecture userLecture;
+
+    public UserTest() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-
-    public Integer getTestId() {
+    public Long getTestId() {
         return testId;
     }
 
-    public void setTestId(Integer testId) {
+    public void setTestId(Long testId) {
         this.testId = testId;
     }
-
 
     public String getUserSolution() {
         return userSolution;
@@ -65,7 +68,6 @@ public class UserTest implements Serializable {
         this.userSolution = userSolution;
     }
 
-
     public Timestamp getDateSolution() {
         return dateSolution;
     }
@@ -74,20 +76,36 @@ public class UserTest implements Serializable {
         this.dateSolution = dateSolution;
     }
 
+    public Long getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(Long statusId) {
+        this.statusId = statusId;
+    }
+
+
+    public UserLecture getUserLecture() {
+        return userLecture;
+    }
+
+    public void setUserLecture(UserLecture userLecture) {
+        this.userLecture = userLecture;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof UserTest)) return false;
         UserTest userTest = (UserTest) o;
-        return Objects.equals(id, userTest.id) &&
-                Objects.equals(userId, userTest.userId) &&
+        return Objects.equals(userId, userTest.userId) &&
                 Objects.equals(testId, userTest.testId) &&
                 Objects.equals(userSolution, userTest.userSolution) &&
-                Objects.equals(dateSolution, userTest.dateSolution);
+                Objects.equals(statusId, userTest.statusId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, testId, userSolution, dateSolution);
+        return Objects.hash( userId, testId, userSolution, statusId);
     }
 }

@@ -1,7 +1,6 @@
-package ru.systemoteh.educationportal.serv.dao.impl;
+package ru.systemoteh.educationportal.prim.dao.impl;
 
-
-import ru.systemoteh.educationportal.serv.dao.EntityDao;
+import ru.systemoteh.educationportal.prim.dao.TestDao;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -10,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EntityDaoImpl implements EntityDao {
+public class TestDaoImpl implements TestDao {
 
     DataSource dataSource;
 

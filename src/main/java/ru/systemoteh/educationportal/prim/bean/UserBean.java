@@ -1,11 +1,13 @@
 package ru.systemoteh.educationportal.prim.bean;
 
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import ru.systemoteh.educationportal.prim.model.User;
+import ru.systemoteh.educationportal.prim.model.*;
+import ru.systemoteh.educationportal.prim.service.LectureService;
 import ru.systemoteh.educationportal.prim.service.UserService;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +16,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 /**
  * @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
- * Если не указать данный параметр, Компонент (Бин) будет работать как Синглтон. У всех пользователей будет один и тот же компонент (бин)
+ * Если не указать данный параметр, Компонент (Bean) будет работать как Синглтон. У всех пользователей будет один и тот же компонент (Bean)
  */
 
 @ManagedBean(name = "userBean")
@@ -27,10 +30,17 @@ import javax.faces.context.FacesContext;
 public class UserBean {
 
     private User currentUser;
+    private Course selectedCourse;
+    private Lecture selectedLecture;
+    private UserCourse selectedUserCourse;
+    private UserLecture selectedUserLecture;
     private long expToConvert;
 
     @ManagedProperty(value = "#{userService}")
     private UserService userService;
+
+    @ManagedProperty(value = "#{lectureService}")
+    private LectureService lectureService;
 
     @Autowired(required = true)
     @Qualifier(value = "userService")
@@ -38,14 +48,12 @@ public class UserBean {
         this.userService = userService;
     }
 
-    @ManagedProperty(value = "#{courseBean}")
-    CourseBean courseBean;
-
     @Autowired(required = true)
-    @Qualifier(value = "courseBean")
-    public void setCourseBean(CourseBean courseBean) {
-        this.courseBean = courseBean;
+    @Qualifier(value = "lectureService")
+    public void setLectureService(LectureService lectureService) {
+        this.lectureService = lectureService;
     }
+
 
     @PostConstruct
     public void init() {
@@ -80,6 +88,32 @@ public class UserBean {
         }
     }
 
+    public boolean isBlockLecture() {
+        UserLecture userLecture = currentUser.getUserLectureList().stream()
+                .filter(item -> item.getLectureId().equals(selectedLecture.getId()))
+                .findAny().orElse(null);
+        return userLecture == null;
+    }
+
+    public void unblockLecture(ActionEvent actionEvent) {
+        if (currentUser.getUserDetail().getCoins() >= selectedLecture.getCost()
+                && lectureService.unblockLecture(currentUser.getId(), selectedLecture.getId())) {  // CALL StoredProcedure with OUT boolean param
+            currentUser.getUserDetail().setCoins(
+                    currentUser.getUserDetail().getCoins() - selectedLecture.getCost()); // local update TODO Refactor return OUT params from StoredProcedure
+            currentUser.getUserLectureList().add(new UserLecture(currentUser.getId(), selectedLecture.getId()));    // local update TODO Refactor return OUT params from StoredProcedure
+//            RequestContext.getCurrentInstance().execute("PF('blockContent').hide()");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Lecture unblocked. - " + selectedLecture.getCost() + " coins", null);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        } else {
+//            RequestContext.getCurrentInstance().execute("PF(':blockForm:blockContent').show()");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL,
+                    "Lecture NOT unblocked. You don't have enough coins", null);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
+
+
     /**********************************************************************************************
      *  Getters and Setters
      *********************************************************************************************/
@@ -92,6 +126,38 @@ public class UserBean {
         this.currentUser = currentUser;
     }
 
+    public Course getSelectedCourse() {
+        return selectedCourse;
+    }
+
+    public void setSelectedCourse(Course selectedCourse) {
+        this.selectedCourse = selectedCourse;
+    }
+
+    public Lecture getSelectedLecture() {
+        return selectedLecture;
+    }
+
+    public void setSelectedLecture(Lecture selectedLecture) {
+        this.selectedLecture = selectedLecture;
+    }
+
+    public UserCourse getSelectedUserCourse() {
+        return selectedUserCourse;
+    }
+
+    public void setSelectedUserCourse(UserCourse selectedUserCourse) {
+        this.selectedUserCourse = selectedUserCourse;
+    }
+
+    public UserLecture getSelectedUserLecture() {
+        return selectedUserLecture;
+    }
+
+    public void setSelectedUserLecture(UserLecture selectedUserLecture) {
+        this.selectedUserLecture = selectedUserLecture;
+    }
+
     public long getExpToConvert() {
         return expToConvert;
     }
@@ -99,4 +165,6 @@ public class UserBean {
     public void setExpToConvert(long expToConvert) {
         this.expToConvert = expToConvert;
     }
+
+
 }

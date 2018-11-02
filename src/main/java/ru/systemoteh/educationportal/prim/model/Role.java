@@ -18,7 +18,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")     // @see User.roles
+    // @see User.roles
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
     public Role() {

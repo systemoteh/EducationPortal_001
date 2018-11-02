@@ -10,15 +10,17 @@
 
 <ui:composition>
 
+    <c:set var="isBlockLecture" scope="session" value="#{userBean.isBlockLecture()}" />
+
     <h:form id="contentForm">
         <div id="page">
 
-            <p:accordionPanel id="content" multiple="true" activeIndex="">
+            <p:accordionPanel id="contentAccord" multiple="true" activeIndex="">
                 <p:tab title="Video Lecture">
                     <div id="video">
                         <ui:insert name="video">
                             <ui:include
-                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{courseBean.selectedCourse.link}/#{lectureBean.selectedLecture.link}-video.xhtml"/>
+                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{userBean.selectedCourse.link}/#{userBean.selectedLecture.link}-video.xhtml"/>
                         </ui:insert>
                     </div>
                 </p:tab>
@@ -26,16 +28,18 @@
                     <div id="conspectus">
                         <ui:insert name="conspectus">
                             <ui:include
-                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{courseBean.selectedCourse.link}/#{lectureBean.selectedLecture.link}-conspectus.xhtml"/>
+                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{userBean.selectedCourse.link}/#{userBean.selectedLecture.link}-conspectus.xhtml"/>
                         </ui:insert>
                     </div>
                 </p:tab>
                 <p:tab title="Tests Lecture">
                     <div id="test">
+                        <c:if test="#{!isBlockLecture}">
                         <ui:insert name="test">
                             <ui:include
-                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{courseBean.selectedCourse.link}/select-test.xhtml"/>
+                                    src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{userBean.selectedCourse.link}/#{userBean.selectedLecture.testTypeId}-test.xhtml"/>
                         </ui:insert>
+                        </c:if>
                     </div>
                 </p:tab>
             </p:accordionPanel>
@@ -47,10 +51,10 @@
     <h:form id="blockForm">
 
         <p:growl id="blockGrowl" life="3000"/>
-        <c:if test="#{lectureBean.isBlockLecture()}">
-            <p:commandButton value="Unblock Lecture. Cost #{lectureBean.selectedLecture.cost} coins" id="unblockLecture"
-                             update=":blockForm :blockForm:blockGrowl :headerForm"
-                             actionListener="#{lectureBean.unblockLecture}"/>
+        <c:if test="#{isBlockLecture}">
+            <p:commandButton value="Unblock Lecture. Cost #{userBean.selectedLecture.cost} coins" id="unblockLecture"
+                             update=":contentForm:contentAccord :blockForm :blockForm:blockGrowl :headerForm"
+                             actionListener="#{userBean.unblockLecture}" ajax="false"/>
             <p:commandButton id="pnlBtn2" value="Unblock Panel" type="button" onclick="PF('blockContent').hide()"/>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 

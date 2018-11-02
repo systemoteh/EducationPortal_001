@@ -3,7 +3,8 @@ package ru.systemoteh.educationportal.prim.dao.impl;
 import org.springframework.transaction.annotation.Transactional;
 import ru.systemoteh.educationportal.prim.dao.LectureDao;
 import ru.systemoteh.educationportal.prim.model.Lecture;
-import ru.systemoteh.educationportal.prim.model.Test;
+import ru.systemoteh.educationportal.prim.model.UserLecture;
+import ru.systemoteh.educationportal.prim.model.UserTest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,16 +13,11 @@ import javax.persistence.Query;
 import javax.sql.DataSource;
 import java.util.List;
 
+
 public class LectureDaoNativeSqlImpl implements LectureDao {
 
     @PersistenceContext(unitName = "edu_portal_prim")
     private EntityManager entityManager;
-
-    DataSource dataSource;
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     // no used
     public Lecture getLectureByLink(String link) {
@@ -31,7 +27,7 @@ public class LectureDaoNativeSqlImpl implements LectureDao {
     }
 
     // no used
-    public Lecture getLectureByCourseIdAndLectureLink(Integer courseId, String lectureLink) {
+    public Lecture getLectureByCourseIdAndLectureLink(Long courseId, String lectureLink) {
         Query query = entityManager.createNativeQuery("SELECT * FROM lecture WHERE course_id = ? AND link = ?  ", Lecture.class);
         query.setParameter(1, courseId);
         query.setParameter(2, lectureLink);
@@ -39,61 +35,61 @@ public class LectureDaoNativeSqlImpl implements LectureDao {
     }
 
     // no used
-    public List<Lecture> getLecturesByCourseId(Integer courseId) {
+    public List<Lecture> getLecturesByCourseId(Long courseId) {
         Query query = entityManager.createNativeQuery("SELECT * FROM lecture WHERE course_id = ?", Lecture.class);
         query.setParameter(1, courseId);
         return query.getResultList();
     }
 
-    public List<Lecture> getUserLectureListByUserId(Long userId) {
+    public List<UserLecture> getUserLectureListByUserId(Long userId) {
         Query query = entityManager.createNativeQuery(
-                "SELECT * FROM lecture l " +
-                        "INNER JOIN user___lecture ul " +
-                        "ON l.id = ul.lecture_id " +
-                        "WHERE ul.user_id = ?",
-                Lecture.class);
+                "SELECT * FROM user___lecture WHERE user_id = ?",
+                UserLecture.class);
         query.setParameter(1, userId);
         return query.getResultList();
     }
 
     @Override
-    public List<Test> getUserTestListByUserId(Long userId) {
+    public List<UserTest> getUserTestListByUserId(Long userId) {
         Query query = entityManager.createNativeQuery(
-                "SELECT t.id, lecture_id, t.number, " +
-                        "t.type_id, t.name_eng, t.name_rus, " +
-                        "t.task, t.solution, ut.user_solution " +
-                        "FROM test t " +
-                        "INNER JOIN user___test ut " +
-                        "ON t.id = ut.test_id " +
-                        "WHERE ut.user_id = ?",
-                Test.class
+                "SELECT * FROM user___test WHERE user_id = ?",
+                UserTest.class
         );
         query.setParameter(1, userId);
         return query.getResultList();
     }
 
     @Transactional(value = "edu_portal_prim")
-    public boolean unblockLecture(Long userId, int lectureId) {
+    public boolean unblockLecture(Long userId, Long lectureId) {
         //  Check whether the database already has such a line
-        String querySelect = "SELECT 1 FROM user___lecture WHERE user_id = ? AND lecture_id = ?";
-        Query nativeQuerySelect = entityManager.createNativeQuery(querySelect);
-        nativeQuerySelect.setParameter(1, userId);
-        nativeQuerySelect.setParameter(2, lectureId);
+        Query nativeQuerySelect01 = entityManager.createNativeQuery(
+                "SELECT 1 FROM user___lecture WHERE user_id = ? AND lecture_id = ?"
+        );
+        nativeQuerySelect01.setParameter(1, userId);
+        nativeQuerySelect01.setParameter(2, lectureId);
         try {
-            if (nativeQuerySelect.getResultList().size() > 0) {
+            if (nativeQuerySelect01.getResultList().size() > 0) {
                 return false;
             }
         } catch (PersistenceException e) {
             return false;   // TODO LOGGER
         }
 
-        String queryUpdate = "UPDATE user_detail SET coins = " +
-                "((SELECT coins FROM user_detail WHERE user_id = ?) - " +
-                "(SELECT cost FROM lecture WHERE lecture.id = ?)) " +
-                "WHERE user_id = ?";
-        Query nativeQueryUpdate = entityManager.createNativeQuery(queryUpdate);
-        nativeQueryUpdate.setParameter(1, userId);
-        nativeQueryUpdate.setParameter(2, lectureId);
+        Query nativeQuerySelect02 = entityManager.createNativeQuery(
+                "SELECT coins FROM user_detail WHERE user_id = ?"
+        );
+        nativeQuerySelect02.setParameter(1, userId);
+
+        Query nativeQuerySelect03 = entityManager.createNativeQuery(
+                "SELECT cost FROM lecture WHERE lecture.id = ?"
+        );
+        nativeQuerySelect03.setParameter(1, lectureId);
+
+        Query nativeQueryUpdate = entityManager.createNativeQuery(
+                "UPDATE user_detail SET coins = (? - ?) WHERE user_id = ?"
+        );
+        nativeQueryUpdate.setParameter(1, nativeQuerySelect02.getSingleResult());
+        nativeQueryUpdate.setParameter(2, nativeQuerySelect03.getSingleResult());
         nativeQueryUpdate.setParameter(3, userId);
         try {
             nativeQueryUpdate.executeUpdate();

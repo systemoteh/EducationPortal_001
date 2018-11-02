@@ -9,33 +9,31 @@
 <f:view>
     <h:form id="testForm">
 
-        <p:accordionPanel value="#{lectureBean.selectedLecture.testList}" var="test" id="accord" activeIndex="">
-            <p:tab title="#{test.nameEng}">
+        <p:accordionPanel value="#{userBean.selectedLecture.testList}" var="test" id="testAccord" activeIndex="">
+            <p:tab title="#{test.nameEng}. Lectire ID - #{userBean.selectedLecture.id}.  Status - #{testBean.selectedUserTestList.get(test.orderBy).statusId}">
 
                 <p:outputLabel>
                     #{test.task}
                 </p:outputLabel>
 
-                <!--<h:form id="testForm-#{course.id}">-->
-
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                        <p:inputTextarea value="#{testBean.customQuery}" widgetVar="queryArea" id="queryArea"
-                                         rows="5" cols="100" queryDelay="750" minQueryLength="4"/>
+                        <p:inputTextarea value="#{testBean.selectedUserTestList.get(test.orderBy).userSolution}" widgetVar="queryArea" id="queryArea"
+                                         rows="5" cols="65" queryDelay="750" minQueryLength="4"/>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <h:panelGrid columns="1" cellpadding="5" cellspacing="15">
-                            <p:commandButton id="clearButton" value="Clear" type="submit"
-                                             actionListener="#{testBean.clearQueryArea(test.number - 1)}"
-                                             update=":contentForm:content:testForm:accord:#{test.number - 1}:queryArea :contentForm:content:testForm:accord:#{test.number - 1}:rowCount :contentForm:content:testForm:accord:#{test.number - 1}:entitiesTable"/>
+                            <p:commandButton value="Show query result" type="submit"
+                                             actionListener="#{testBean.getEntitiesByCustomQuery(test.orderBy)}"
+                                             update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable"/>
                             &nbsp;
-                            <p:commandButton value="Run the query without checking" type="submit"
-                                             actionListener="#{testBean.getEntitiesByCustomQuery(test.number - 1)}"
-                                             update=":contentForm:content:testForm:accord:#{test.number - 1}:rowCount :contentForm:content:testForm:accord:#{test.number - 1}:entitiesTable"/>
+                            <p:commandButton value="Submit for review" type="submit"
+                                             actionListener="#{testBean.getEntitiesByCustomQuery(test.orderBy)}"
+                                             update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable"/>
                             &nbsp;
-                            <p:commandButton value="Run the query with checking" type="submit"
-                                             actionListener="#{testBean.getEntitiesByCustomQuery(test.number - 1)}"
-                                             update=":contentForm:content:testForm:accord:#{test.number - 1}:rowCount :contentForm:content:testForm:accord:#{test.number - 1}:entitiesTable"/>
+                            <p:commandButton id="clearButton" value="Clear query area" type="submit"
+                                             actionListener="#{testBean.clearQueryArea(test.orderBy)}"
+                                             update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:queryArea"/>
                             &nbsp;
                         </h:panelGrid>
 
@@ -57,7 +55,6 @@
 
                 </p:dataTable>
 
-                <!--</h:form>-->
             </p:tab>
         </p:accordionPanel>
 

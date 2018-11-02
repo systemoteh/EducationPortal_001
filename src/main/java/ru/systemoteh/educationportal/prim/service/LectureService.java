@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface LectureService {
 
-    boolean unblockLecture(Long userId, int lectureId);
+    boolean unblockLecture(Long userId, Long lectureId);
 
 }

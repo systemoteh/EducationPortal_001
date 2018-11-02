@@ -15,7 +15,7 @@ public class LectureServiceImpl implements LectureService {
     }
 
     @Override
-    public boolean unblockLecture(Long userId, int lectureId) {
+    public boolean unblockLecture(Long userId, Long lectureId) {
         return lectureDao.unblockLecture(userId, lectureId);
     }
 }

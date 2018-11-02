@@ -27,15 +27,15 @@
 
         <h:form>
 
-            <p:dataTable var="course" value="#{courseBean.courseList}">
+            <p:dataTable var="course" value="#{globalBean.courseList}">
 
                 <p:column headerText="Name English">
-                    <h:commandLink action="#{courseBean.goToCourse(course)}">
+                    <h:outputLink value="/education">
                         <h:outputText value="#{course.nameEng}"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <f:param name="courseLink" value="#{course.link}"/>
+                        <f:param name="course" value="#{course.link}"/>
                         <!--<h:graphicImage library="images" name="course.image" />-->
-                    </h:commandLink>
+                    </h:outputLink  >
                 </p:column>
 
                 <p:column headerText="Course Description">

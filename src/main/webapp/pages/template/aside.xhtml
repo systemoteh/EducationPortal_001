@@ -11,15 +11,17 @@
 
     <h:form id="asideForm">
 
-        <p:dataTable var="lecture" value="#{courseBean.selectedCourse.lectureList}" emptyMessage="Select the course">
+        <p:dataTable var="lecture" value="#{userBean.selectedCourse.lectureList}"
+                     emptyMessage="Select the course" >
 
             <p:column headerText="Name Lecture">
-                <h:commandLink action="#{lectureBean.goToLecture(lecture)}" update=":contentForm">
+                <h:outputLink value="/education" update=":contentForm">
                     <h:outputText value="#{lecture.nameEng}"/>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <f:param name="course" value="#{userBean.selectedCourse.link}"/>
                     <f:param name="lecture" value="#{lecture.link}"/>
                     <!--<h:graphicImage library="images" name="lecture.image" />-->
-                </h:commandLink>
+                </h:outputLink>
             </p:column>
 
         </p:dataTable>

@@ -2,7 +2,8 @@ package ru.systemoteh.educationportal.prim.dao.impl;
 
 import ru.systemoteh.educationportal.prim.dao.LectureDao;
 import ru.systemoteh.educationportal.prim.model.Lecture;
-import ru.systemoteh.educationportal.prim.model.Test;
+import ru.systemoteh.educationportal.prim.model.UserLecture;
+import ru.systemoteh.educationportal.prim.model.UserTest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,19 +19,19 @@ public class LectureDaoJpaImpl implements LectureDao {
     }
 
     @Override
-    public List<Lecture> getUserLectureListByUserId(Long userId) {
+    public List<UserLecture> getUserLectureListByUserId(Long userId) {
         // TODO
         return null;
     }
 
     @Override
-    public List<Test> getUserTestListByUserId(Long userId) {
+    public List<UserTest> getUserTestListByUserId(Long userId) {
         // TODO
         return null;
     }
 
     @Override
-    public boolean unblockLecture(Long userId, int lectureId) {
+    public boolean unblockLecture(Long userId, Long lectureId) {
         // TODO
         return false;
     }

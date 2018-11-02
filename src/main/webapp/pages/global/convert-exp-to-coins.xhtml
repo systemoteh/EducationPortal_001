@@ -23,8 +23,11 @@
 
                     <p:commandButton value="Convert" actionListener="#{userBean.convertExpToCoins}" type="submit"
                                      update=":convertExpToCoinsForm:convertExpToCoinsGrowl :headerForm"/> &nbsp;
-                    <p:commandButton value="Back" ajax="false"
-                                     actionListener="#{lectureBean.goToLecture(lectureBean.selectedLecture)}"/> &nbsp;
+                    <h:outputLink value="/education" update=":contentForm">
+                        <h:outputText value="Back"/>
+                        <f:param name="course" value="#{userBean.selectedCourse.link}"/>
+                        <f:param name="lecture" value="#{userBean.selectedLecture.link}"/>
+                    </h:outputLink>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                 </h:form>

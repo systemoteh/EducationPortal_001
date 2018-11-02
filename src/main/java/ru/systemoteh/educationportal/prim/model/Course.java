@@ -1,5 +1,10 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -10,11 +15,15 @@ import java.util.Objects;
 
 @Entity
 @Table(schema = "edu_portal_prim", name = "course")
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@EqualsAndHashCode
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name_eng")
     private String nameEng;
@@ -36,14 +45,15 @@ public class Course {
 //    @Transient
 //    private List<Lecture> lectureList;
 
+
     public Course() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -102,16 +112,5 @@ public class Course {
     @Override
     public int hashCode() {
         return Objects.hash(id, nameEng, nameRus, link, description);
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", nameEng='" + nameEng + '\'' +
-                ", nameRus='" + nameRus + '\'' +
-                ", link='" + link + '\'' +
-                ", description='" + description +
-                '}';
     }
 }

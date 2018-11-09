@@ -47,4 +47,8 @@ public class LectureDaoMySqlImpl implements LectureDao {
         }
     }
 
+    @Override
+    public UserLecture getUserLectureByUserIdAndLectureId(Long userId, Long lectureId) {
+        return lectureDao.getUserLectureByUserIdAndLectureId(userId, lectureId);
+    }
 }

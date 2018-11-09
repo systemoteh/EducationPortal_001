@@ -60,6 +60,30 @@ public class UserBean {
 
     }
 
+    public boolean isBlockLecture() {
+        return selectedUserLecture == null;
+    }
+
+    public void unblockLecture(ActionEvent actionEvent) {
+        if (currentUser.getUserDetail().getCoins() >= selectedLecture.getCost()
+                && lectureService.unblockLecture(currentUser.getId(), selectedLecture.getId())) {
+            currentUser.getUserDetail().setCoins(
+                    currentUser.getUserDetail().getCoins() - selectedLecture.getCost());
+            selectedUserCourse.getUserLectureList().add(
+                    selectedUserLecture = new UserLecture(currentUser.getId(), selectedLecture.getId()));
+//            RequestContext.getCurrentInstance().execute("PF('blockContent').hide()");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Lecture unblocked. - " + selectedLecture.getCost() + " coins", null);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        } else {
+//            RequestContext.getCurrentInstance().execute("PF(':blockForm:blockContent').show()");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL,
+                    "Lecture NOT unblocked. You don't have enough coins", null);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
+
+
     public void saveUserDetail() {
         if (userService.saveUserDetail(currentUser.getUserDetail())) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "UserDetail SAVE", null);
@@ -84,31 +108,6 @@ public class UserBean {
         } else {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL,
                     "You don't have enough experience points", null);
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
-    }
-
-    public boolean isBlockLecture() {
-        UserLecture userLecture = currentUser.getUserLectureList().stream()
-                .filter(item -> item.getLectureId().equals(selectedLecture.getId()))
-                .findAny().orElse(null);
-        return userLecture == null;
-    }
-
-    public void unblockLecture(ActionEvent actionEvent) {
-        if (currentUser.getUserDetail().getCoins() >= selectedLecture.getCost()
-                && lectureService.unblockLecture(currentUser.getId(), selectedLecture.getId())) {  // CALL StoredProcedure with OUT boolean param
-            currentUser.getUserDetail().setCoins(
-                    currentUser.getUserDetail().getCoins() - selectedLecture.getCost()); // local update TODO Refactor return OUT params from StoredProcedure
-            currentUser.getUserLectureList().add(new UserLecture(currentUser.getId(), selectedLecture.getId()));    // local update TODO Refactor return OUT params from StoredProcedure
-//            RequestContext.getCurrentInstance().execute("PF('blockContent').hide()");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                    "Lecture unblocked. - " + selectedLecture.getCost() + " coins", null);
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        } else {
-//            RequestContext.getCurrentInstance().execute("PF(':blockForm:blockContent').show()");
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL,
-                    "Lecture NOT unblocked. You don't have enough coins", null);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
     }

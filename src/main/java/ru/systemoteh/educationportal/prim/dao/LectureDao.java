@@ -13,4 +13,6 @@ public interface LectureDao {
 
     boolean unblockLecture(Long userId, Long lectureId);
 
+    UserLecture getUserLectureByUserIdAndLectureId(Long userId, Long lectureId);
+
 }

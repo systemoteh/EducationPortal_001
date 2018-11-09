@@ -51,17 +51,11 @@ public class RootController {
     private String selectAnotherCourseAndLecture() {
         Course course = globalBean.getCourseList().stream().
                 filter(item -> item.getLink().equals(courseLink)).findAny().orElse(null);
-
         if (course != null) {
             userBean.setSelectedCourse(course);
-
             UserCourse userCourse = courseService.getUserCourseByUserIdAndCourseId(
                     userBean.getCurrentUser().getId(), course.getId());
-
-            if (userCourse != null) {
-                userBean.setSelectedUserCourse(userCourse);
-            }
-
+            userBean.setSelectedUserCourse(userCourse);
             selectAnotherLectureInSelectedCourse();
             return EDUCATION;
         } else {
@@ -71,35 +65,20 @@ public class RootController {
 
     private String selectAnotherLectureInSelectedCourse() {
         Lecture lecture = userBean.getSelectedCourse().getLectureList().stream()
-                .filter(item -> item.getLink().equals(lectureLink)).findAny().orElse(null);
-
+                .filter(item -> item.getLink().equals(lectureLink))
+                .findAny().orElse(null);
         if (lecture != null) {
             userBean.setSelectedLecture(lecture);
-
-            // TODO FAIL because userBean.getSelectedUserCourse().getUserLectureList() == null
             UserLecture userLecture = userBean.getSelectedUserCourse().getUserLectureList().stream()
-                    .filter(item -> item.getLectureId().equals(lecture.getId())).findAny().orElse(null);
-
-            if (userLecture != null) {
-                userBean.setSelectedUserLecture(userLecture);
-            }
-
+                    .filter(item -> item.getLectureId().equals(lecture.getId()))
+                    .findAny().orElse(null);
+            userBean.setSelectedUserLecture(userLecture);
         } else {
             lectureLink = userBean.getSelectedCourse().getLink() + "-intro";
             selectAnotherLectureInSelectedCourse();
         }
         return EDUCATION;
     }
-
-
-
-
-
-
-
-
-
-
 
 
     // TODO Заглушка(чтобы не было лога об ошибки "не найден маппинг на /favicon.ico"), разобраться для чего /favicon.ico

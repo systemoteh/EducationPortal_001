@@ -31,6 +31,7 @@ public class UserLecture implements Serializable {
     public UserLecture(Long userId, Long lectureId) {
         this.userId = userId;
         this.lectureId = lectureId;
+        this.rating = 0L;
     }
 
     public Long getUserId() {

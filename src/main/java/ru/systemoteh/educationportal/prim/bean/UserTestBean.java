@@ -47,13 +47,6 @@ public class UserTestBean {
 
     @PostConstruct
     public void init() {
-//        for (UserTest userTest : userBean.getCurrentUser().getUserTestList()) {
-//            for (Test test : userBean.getSelectedLecture().getTestList()) {
-//                if (userTest.getTestId().equals(test.getId())) {
-//                    selectedUserTestList.add(userTest);
-//                }
-//            }
-//        }
         selectedUserTestList = userBean.getSelectedUserLecture().getUserTestList();
     }
 

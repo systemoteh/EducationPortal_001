@@ -15,7 +15,7 @@
                 <h:form id="convertExpToCoinsForm">
                     <p:growl id="convertExpToCoinsGrowl" life="3000"/>
 
-                    <h:panelGrid columns="1" style="margin-bottom: 10px">
+                    <h:panelGrid columns="1" cellpadding="5" style="margin-bottom: 10px">
                         <p:spinner id="convertExpToCoinsSpinner" value="#{userBean.expToConvert}" min="0" max="100"
                                    stepFactor="1"/>
                         <p:slider for="convertExpToCoinsSpinner" minValue="0" maxValue="100" step="1"/>

@@ -22,6 +22,7 @@ public class UserTest implements Serializable {
     @Id
     @Column(name = "user_id")
     private Long userId;
+
     @Id
     @Column(name = "test_id")
     private Long testId;

@@ -54,7 +54,7 @@ public class Lecture {
     private Course course;
 
     // @see Test.lecture
-    @OneToMany(mappedBy = "lecture", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "lecture", fetch = FetchType.EAGER)
     private List<Test> testList;
 
     public Lecture() {

@@ -40,17 +40,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "user")    // @see UserDetail.user
+    // @see UserDetail.user
+    @OneToOne(mappedBy = "user")
     private UserDetail userDetail;
-
-    @Transient
-    private List<UserCourse> userCourseList;
-
-    @Transient
-    private List<UserLecture> userLectureList;
-
-    @Transient
-    private List<UserTest> userTestList;
 
     public User() {
     }
@@ -101,30 +93,6 @@ public class User {
 
     public void setUserDetail(UserDetail userDetail) {
         this.userDetail = userDetail;
-    }
-
-    public List<UserLecture> getUserLectureList() {
-        return userLectureList;
-    }
-
-    public void setUserLectureList(List<UserLecture> userLectureList) {
-        this.userLectureList = userLectureList;
-    }
-
-    public List<UserTest> getUserTestList() {
-        return userTestList;
-    }
-
-    public void setUserTestList(List<UserTest> userTestList) {
-        this.userTestList = userTestList;
-    }
-
-    public List<UserCourse> getUserCourseList() {
-        return userCourseList;
-    }
-
-    public void setUserCourseList(List<UserCourse> userCourseList) {
-        this.userCourseList = userCourseList;
     }
 
     @Override

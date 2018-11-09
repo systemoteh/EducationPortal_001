@@ -38,7 +38,7 @@ public class Course {
     private String description;
 
     // @see Lecture.course
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private List<Lecture> lectureList;
 
 //    TODO Test what's best for performance: @OneToMany ore @Transient

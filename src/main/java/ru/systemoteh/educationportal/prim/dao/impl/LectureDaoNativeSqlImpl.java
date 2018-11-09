@@ -108,4 +108,20 @@ public class LectureDaoNativeSqlImpl implements LectureDao {
         }
     }
 
+    @Override
+    public UserLecture getUserLectureByUserIdAndLectureId(Long userId, Long lectureId) {
+        UserLecture userLecture = (UserLecture) entityManager.createNativeQuery("SELECT * FROM user___lecture " +
+                "WHERE user_id = ? AND lecture_id = ?", UserLecture.class)
+                .setParameter(1, userId)
+                .setParameter(2, lectureId)
+                .getSingleResult();
+        List<UserTest> userTestList = entityManager.createNativeQuery("SELECT * FROM user___test ut " +
+                "INNER JOIN test t ON ut.test_id = t.id " +
+                "WHERE user_id = ? AND t.lecture_id = ?", UserTest.class)
+                .setParameter(1, userId)
+                .setParameter(2, lectureId)
+                .getResultList();
+        userLecture.setUserTestList(userTestList);
+        return userLecture;
+    }
 }

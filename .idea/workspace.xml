@@ -7,59 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c400092-f41f-4f13-a6bd-0640b936bc9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/GlobalBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/listener/RootContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/1-test.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db36581b-5b82-48e4-87d8-9550773ea1ca.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db36581b-5b82-48e4-87d8-9550773ea1ca.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db36581b-5b82-48e4-87d8-9550773ea1ca/storage_v2/_src_/schema/edu_portal_prim.kDthfA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db36581b-5b82-48e4-87d8-9550773ea1ca/storage_v2/_src_/schema/edu_portal_prim.kDthfA.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/CourseBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/LectureBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/TestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/PortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/CourseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoMySqlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoMySqlImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/UserDaoNativeSqlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/UserDaoNativeSqlImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/LectureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/LectureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/CourseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/bean/CustomQueryBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/EmployeeDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/EntityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/TestDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/impl/EmployeeDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/impl/EntityDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/TestDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/model/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/model/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/repository/EmployeeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/EmployeeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/EntityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/impl/EmployeeServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/impl/EntityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/TestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-dao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/global/convert-exp-to-coins.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/global/convert-exp-to-coins.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/global/user-detail.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/global/user-detail.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/lecture/lecture-test.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/select-test.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/lecture/java/1-test.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/template/aside.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/template/aside.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/template/content.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/template/content.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/template/layout.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/template/layout.xhtml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,7 +37,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/EducationPortal_001$Tomcat_9.ic" NAME="Tomcat 9 Coverage Results" MODIFIED="1539859931763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/EducationPortal_001$Tomcat_9.ic" NAME="Tomcat 9 Coverage Results" MODIFIED="1541510817479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -143,7 +110,7 @@
     <session id="-257786555">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="48" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.100" value="1" />
           <entry key="project.open.time.103" value="1" />
@@ -164,6 +131,7 @@
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.53" value="2" />
           <entry key="project.open.time.55" value="2" />
+          <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.60" value="2" />
           <entry key="project.open.time.62" value="1" />
@@ -177,11 +145,11 @@
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.75" value="1" />
           <entry key="project.open.time.77" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.81" value="1" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.81" value="2" />
           <entry key="project.open.time.83" value="1" />
           <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="50" />
+          <entry key="project.opened" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -189,28 +157,28 @@
           <entry key="cell" value="87" />
           <entry key="dummy" value="79" />
           <entry key="html" value="11" />
-          <entry key="java" value="23629" />
+          <entry key="java" value="25868" />
           <entry key="js" value="5" />
           <entry key="jsp" value="82" />
           <entry key="properties" value="452" />
           <entry key="sql" value="579" />
           <entry key="txt" value="35" />
-          <entry key="xhtml" value="8070" />
+          <entry key="xhtml" value="8211" />
           <entry key="xml" value="1912" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="11" />
-          <entry key="JAVA" value="23603" />
-          <entry key="JPA QL" value="2" />
+          <entry key="JAVA" value="25833" />
+          <entry key="JPA QL" value="5" />
           <entry key="JSP" value="82" />
           <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="114" />
           <entry key="Properties" value="452" />
-          <entry key="SQL" value="603" />
+          <entry key="SQL" value="609" />
           <entry key="Scratch" value="87" />
-          <entry key="XHTML" value="8070" />
+          <entry key="XHTML" value="8211" />
           <entry key="XML" value="1912" />
         </counts>
       </usages-collector>
@@ -226,8 +194,8 @@
           <entry key="employee" value="4" />
           <entry key="gif" value="3" />
           <entry key="html" value="3" />
-          <entry key="java" value="1507" />
-          <entry key="js" value="5" />
+          <entry key="java" value="1614" />
+          <entry key="js" value="6" />
           <entry key="jsp" value="49" />
           <entry key="lecture" value="4" />
           <entry key="lecture_course" value="1" />
@@ -240,8 +208,8 @@
           <entry key="user_detail" value="1" />
           <entry key="user_roles" value="2" />
           <entry key="users" value="3" />
-          <entry key="xhtml" value="512" />
-          <entry key="xml" value="251" />
+          <entry key="xhtml" value="524" />
+          <entry key="xml" value="252" />
           <entry key="xml;appContextName=applicationContext-data" value="1" />
           <entry key="xsd" value="2" />
           <entry key="Без названия" value="3" />
@@ -255,16 +223,16 @@
           <entry key="Database Element" value="23" />
           <entry key="HTML" value="3" />
           <entry key="Image" value="3" />
-          <entry key="JAVA" value="1507" />
+          <entry key="JAVA" value="1614" />
           <entry key="JSP" value="49" />
-          <entry key="JavaScript" value="5" />
+          <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="20" />
           <entry key="SQL" value="36" />
           <entry key="Scratch" value="8" />
           <entry key="UML" value="5" />
-          <entry key="XHTML" value="512" />
-          <entry key="XML" value="253" />
+          <entry key="XHTML" value="524" />
+          <entry key="XML" value="254" />
         </counts>
       </usages-collector>
     </session>
@@ -273,15 +241,24 @@
     <favorites_list name="EducationPortal_001" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+            <state relative-caret-position="510">
+              <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-408">
+              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -289,20 +266,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="159">
+              <caret line="40" column="80" lean-forward="true" selection-start-line="40" selection-start-column="80" selection-end-line="40" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -323,9 +288,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@PersistenceContext</find>
-      <find>entityManagerFactory</find>
-      <find>persistenceUnitManager</find>
       <find>data_first_pu</find>
       <find>@Transactional(value = &quot;transactionManager01&quot;, readOnly = true)</find>
       <find>@PersistenceContext(unitName = &quot;mysql&quot;)</find>
@@ -353,6 +315,9 @@
       <find>ccord</find>
       <find>dataSource</find>
       <find>testService</find>
+      <find>Status</find>
+      <find>app</find>
+      <find>app.js</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -361,8 +326,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/PortalController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/lecture/lecture-test.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-database.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-root.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserSecurityServiceImpl.java" />
@@ -371,46 +334,48 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/LectureBean.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/global/convert-exp-to-coins.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/global/user-detail.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/listener/RootContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/GlobalBean.java" />
         <option value="/28ee971/db36581b-5b82-48e4-87d8-9550773ea1ca/schema/edu_portal_prim/routine/unblock_lecture@(int(11),int(11)).sql" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/UserDaoNativeSqlImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/LectureService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoMySqlImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/template/aside.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/TestServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-dao.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/select-test.xhtml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/1-test.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/template/content.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/TestDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/TestDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/TestService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/TestBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/CourseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/CourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/CourseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserCourse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoMySqlImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/LectureService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/global/convert-exp-to-coins.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/global/user-detail.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/template/layout.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/template/aside.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/lecture/java/1-test.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java" />
       </list>
     </option>
@@ -451,10 +416,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -464,7 +430,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -544,14 +511,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -559,6 +518,13 @@
               <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -568,6 +534,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
@@ -587,16 +562,6 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="lecture" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="lecture" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
@@ -613,13 +578,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EducationPortal_001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EducationPortal_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -629,7 +603,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/my_projects/EducationPortal_001/src/main/java/ru/systemoteh/educationportal/serv/bean/CustomQueryBean.java&#10;conte&#9;FILE&#9;file://D:/my_projects/EducationPortal_001/src/main/webapp/WEB-INF/template/content.xhtml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541172590735" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541521815365" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="C:/NLProjects/nldealer-web/nldealer" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -637,22 +611,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\lecture" />
-      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\global" />
-      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages" />
-      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\WEB-INF\secure" />
-      <recent name="D:\my_projects\EducationPortal_001\src\main\java\ru\systemoteh\educationportal" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="ru.systemoteh.educationportal.repository" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="ru.systemoteh.educationportal.prim.model" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.systemoteh.educationportal.prim.service.impl" />
       <recent name="ru.systemoteh.educationportal.prim.service" />
@@ -660,12 +621,25 @@
       <recent name="ru.systemoteh.educationportal.prim.dao" />
       <recent name="ru.systemoteh.educationportal.prim.bean" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.systemoteh.educationportal.repository" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\lecture\java" />
       <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\lecture\sql" />
       <recent name="D:\my_projects\EducationPortal_001\src\main\java\ru\systemoteh\educationportal\serv" />
       <recent name="D:\my_projects\EducationPortal_001\src\main\resources" />
       <recent name="D:\my_projects\EducationPortal_001\new" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="ru.systemoteh.educationportal.prim.model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\lecture" />
+      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages\global" />
+      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\pages" />
+      <recent name="D:\my_projects\EducationPortal_001\src\main\webapp\WEB-INF\secure" />
+      <recent name="D:\my_projects\EducationPortal_001\src\main\java\ru\systemoteh\educationportal" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -894,12 +868,16 @@
       <workItem from="1540883451879" duration="6159000" />
       <workItem from="1540970079873" duration="22457000" />
       <workItem from="1541056755306" duration="28619000" />
-      <workItem from="1541142878070" duration="25842000" />
+      <workItem from="1541142878070" duration="26117000" />
+      <workItem from="1541489191240" duration="928000" />
+      <workItem from="1541490191087" duration="29346000" />
+      <workItem from="1541574670553" duration="1305000" />
+      <workItem from="1541779752282" duration="1639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="727364000" />
+    <option name="totallyTimeSpent" value="760857000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -911,10 +889,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.56229687" visible="true" weight="0.21588486" />
-      <window_info id="Structure" order="1" sideWeight="0.5019455" side_tool="true" weight="0.20042644" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5271028" visible="true" weight="0.20788912" />
+      <window_info id="Structure" order="1" sideWeight="0.4728972" side_tool="true" weight="0.20362474" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.5016251" side_tool="true" weight="0.13219616" />
@@ -924,21 +902,21 @@
       <window_info id="Persistence" order="8" sideWeight="0.43770313" side_tool="true" weight="0.21588486" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.4978678" weight="0.42795232" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49733475" weight="0.42470205" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021322" side_tool="true" weight="0.39869988" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026652" side_tool="true" weight="0.42036837" />
       <window_info anchor="bottom" id="Application Servers" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32827735" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32936078" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="15" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven Projects" order="0" visible="true" weight="0.11247335" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.11247335" />
       <window_info anchor="right" id="Database" order="1" weight="0.2196162" />
       <window_info anchor="right" id="Bean Validation" order="2" sideWeight="0.49837488" weight="0.32995737" />
       <window_info anchor="right" id="JSF" order="3" sideWeight="0.49945828" weight="0.29637527" />
@@ -949,6 +927,7 @@
       <window_info anchor="right" id="Commander" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5655471" visible="true" weight="0.2249467" />
@@ -995,464 +974,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java</url>
-          <line>79</line>
-          <properties />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-      </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-    </breakpoint-manager>
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1002">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lecture/java/select-test.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/model/Employee.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/model/Model.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/EntityDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/impl/EntityDaoImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/dao/EmployeeDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/impl/EntityServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/service/EntityService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/serv/repository/EmployeeRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="52" column="55" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lecture/java/1-test.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-972" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="237" column="14" selection-start-line="237" selection-start-column="14" selection-end-line="237" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" selection-start-line="19" selection-start-column="2" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/content.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.2.0.RELEASE/spring-beans-4.2.0.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1469">
-          <caret line="353" selection-start-line="353" selection-end-line="353" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="42" selection-start-line="42" selection-end-line="45" selection-end-column="28" />
-          <folding>
-            <element signature="e#1085#1086#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1206#1207#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1328#1329#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1472#1473#0" expanded="true" />
-            <element signature="e#1503#1504#0" expanded="true" />
-            <element signature="e#1532#1533#0" expanded="true" />
-            <element signature="e#1574#1575#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
-            <element signature="e#1720#1721#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-            <element signature="e#1792#1793#0" expanded="true" />
-            <element signature="e#1822#1823#0" expanded="true" />
-            <element signature="e#1868#1869#0" expanded="true" />
-            <element signature="e#1906#1907#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1964#1965#0" expanded="true" />
-            <element signature="e#2004#2005#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2071#2072#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
-            <element signature="e#2190#2191#0" expanded="true" />
-            <element signature="e#2225#2226#0" expanded="true" />
-            <element signature="e#2255#2256#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2340#2341#0" expanded="true" />
-            <element signature="e#2997#2998#0" expanded="true" />
-            <element signature="e#3098#3099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="22" selection-start-line="22" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="e#1415#1416#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1474#1475#0" expanded="true" />
-            <element signature="e#1502#1503#0" expanded="true" />
-            <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-            <element signature="e#1612#1613#0" expanded="true" />
-            <element signature="e#1650#1651#0" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#1760#1761#0" expanded="true" />
-            <element signature="e#1798#1799#0" expanded="true" />
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1908#1909#0" expanded="true" />
-            <element signature="e#1948#1949#0" expanded="true" />
-            <element signature="e#1980#1981#0" expanded="true" />
-            <element signature="e#2010#2011#0" expanded="true" />
-            <element signature="e#2054#2055#0" expanded="true" />
-            <element signature="e#2092#2093#0" expanded="true" />
-            <element signature="e#2127#2128#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2210#2211#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2283#2284#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#2411#2412#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2478#2479#0" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-            <element signature="e#2548#2549#0" expanded="true" />
-            <element signature="e#2582#2583#0" expanded="true" />
-            <element signature="e#2636#2637#0" expanded="true" />
-            <element signature="e#2682#2683#0" expanded="true" />
-            <element signature="e#2715#2716#0" expanded="true" />
-            <element signature="e#2744#2745#0" expanded="true" />
-            <element signature="e#2788#2789#0" expanded="true" />
-            <element signature="e#2824#2825#0" expanded="true" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#2894#2895#0" expanded="true" />
-            <element signature="e#2946#2947#0" expanded="true" />
-            <element signature="e#2986#2987#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/1-test.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="20" column="101" lean-forward="true" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserCoursePK.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3087#3088#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/TestDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/TestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="7" column="75" lean-forward="true" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/TestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="7" column="75" lean-forward="true" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/TestServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/CourseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/CourseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-root.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/CourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1333#1334#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1435#1436#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1577#1578#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#1687#1688#0" expanded="true" />
-            <element signature="e#1721#1722#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1821#1822#0" expanded="true" />
-            <element signature="e#1866#1867#0" expanded="true" />
-            <element signature="e#1900#1901#0" expanded="true" />
-            <element signature="e#1961#1962#0" expanded="true" />
-            <element signature="e#2007#2008#0" expanded="true" />
-            <element signature="e#2515#2516#0" expanded="true" />
-            <element signature="e#2591#2592#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/GlobalBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-          <folding>
-            <element signature="docComment;class#UserBean#0" />
-            <element signature="method#init#0;class#UserBean#0" />
-            <element signature="method#saveUserDetail#0;class#UserBean#0" />
-            <element signature="method#convertExpToCoins#0;class#UserBean#0" />
-            <element signature="method#isBlockLecture#0;class#UserBean#0" />
-            <element signature="method#unblockLecture#0;class#UserBean#0" />
-            <element signature="docComment;method#getCurrentUser#0;class#UserBean#0" />
-            <element signature="e#5563#5564#0" expanded="true" />
-            <element signature="e#5597#5598#0" expanded="true" />
-            <element signature="e#6132#6133#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6245#6246#0" expanded="true" />
-            <element signature="e#6305#6306#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-          <folding>
-            <element signature="e#1944#1945#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-            <element signature="e#2205#2206#0" expanded="true" />
-            <element signature="e#2243#2244#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserCourse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
-          <folding>
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.11.Final/hibernate-core-4.3.11.Final-sources.jar!/org/hibernate/proxy/pojo/javassist/JavassistLazyInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -1463,41 +993,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.0.RELEASE/spring-aop-4.2.0.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="167">
+          <caret line="623" selection-start-line="623" selection-end-line="623" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/content.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="66" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/GlobalBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoJpaImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoMySqlImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="632">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="228" selection-start-line="228" selection-end-line="228" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.0.RELEASE/spring-aop-4.2.0.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="623" selection-start-line="623" selection-end-line="623" />
+          <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -1508,30 +1063,277 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.0.2.RELEASE/spring-security-web-4.0.2.RELEASE-sources.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="21" selection-start-line="21" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/Lecture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="56" column="60" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/LectureDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/TestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="75" lean-forward="true" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/LectureService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/TestService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="75" lean-forward="true" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/LectureServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/TestServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/SecurityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/SecurityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserDetailsSecurityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserSecurityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/security/UserSecurityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/model/UserLecture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/LectureDaoNativeSqlImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="99" column="93" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserTestBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+        <state relative-caret-position="1370">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lecture/sql/1-test.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="24" column="82" lean-forward="true" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/header.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="15" column="116" selection-start-line="15" selection-start-column="107" selection-end-line="15" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/global/education.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/global/convert-exp-to-coins.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/global/user-detail.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="93" selection-start-line="9" selection-start-column="93" selection-end-line="9" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/CourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/CourseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/RootController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/layout.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="120" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="12" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/aside.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/lecture/java/1-test.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/bean/UserBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/dao/impl/CourseDaoJpaImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="159">
+          <caret line="40" column="80" lean-forward="true" selection-start-line="40" selection-start-column="80" selection-end-line="40" selection-end-column="80" />
         </state>
       </provider>
     </entry>

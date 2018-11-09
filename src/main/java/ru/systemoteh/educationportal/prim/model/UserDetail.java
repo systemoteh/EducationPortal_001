@@ -69,10 +69,10 @@ public class UserDetail {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastVisit;
 
+    // @see this.userId  @Column(name = "user_id")
     @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
-    // @see this.userId  @Column(name = "user_id")
 
 
     public UserDetail() {

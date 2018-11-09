@@ -36,4 +36,9 @@ public class LectureDaoJpaImpl implements LectureDao {
         return false;
     }
 
+    @Override
+    public UserLecture getUserLectureByUserIdAndLectureId(Long userId, Long lectureId) {
+        // TODO
+        return null;
+    }
 }

@@ -1,5 +1,7 @@
 package ru.systemoteh.educationportal.prim.dao.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.transaction.annotation.Transactional;
 import ru.systemoteh.educationportal.prim.dao.UserDao;
@@ -11,6 +13,8 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 public class UserDaoNativeSqlImpl implements UserDao {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserDaoNativeSqlImpl.class);
 
     @PersistenceContext(unitName = "edu_portal_prim")
     private EntityManager entityManager;
@@ -27,10 +31,12 @@ public class UserDaoNativeSqlImpl implements UserDao {
         try {
             if (nativeQuerySelect.getResultList().size() > 0) {
                 userDetail.setEmail(null);
+                LOGGER.warn("Email not unique");
                 return false;
             }
         } catch (TransactionSystemException e) {
-            return false;   // TODO LOGGER
+            LOGGER.error(e.getMessage(), e);
+            return false;
         }
 
         String queryUpdate = "UPDATE education_portal.user_detail SET first_name = ?, " +
@@ -47,7 +53,8 @@ public class UserDaoNativeSqlImpl implements UserDao {
         try {
             return nativeQueryUpdate.executeUpdate() > 0;
         } catch (Exception e) {
-            return false;   // TODO LOGGER
+            LOGGER.error(e.getMessage(), e);
+            return false;
         }
     }
 
@@ -62,7 +69,8 @@ public class UserDaoNativeSqlImpl implements UserDao {
         try {
             return nativeQueryUpdate.executeUpdate() > 0;
         } catch (PersistenceException e) {
-            return false;   // TODO LOGGER
+            LOGGER.error(e.getMessage(), e);
+            return false;
         }
     }
 }

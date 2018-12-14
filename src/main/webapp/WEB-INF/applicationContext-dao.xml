@@ -6,19 +6,24 @@
     <!-- ru.systemoteh.educationportal.prim -->
 
     <!-- CourseDaoJpaImpl bean -->
-    <bean id="courseDaoJpaImpl" class="ru.systemoteh.educationportal.prim.dao.impl.CourseDaoJpaImpl"/>
+    <bean id="courseDaoJpaImpl" class="ru.systemoteh.educationportal.prim.dao.impl.CourseDaoJpaImpl">
+        <property name="courseDao" ref="courseDaoNativeSqlImpl"/>
+    </bean>
+
+    <!-- CourseDaoNativeSqlImpl bean -->
+    <bean id="courseDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.CourseDaoNativeSqlImpl">
+        <property name="dataSource" ref="dataSourcePrim"/>
+    </bean>
 
     <!-- LectureDaoMySqlImpl bean -->
-    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoMySqlImpl">
-        <property name="lectureDao" ref="lectureDaoNativeSqlImpl"/>
-    </bean>
+    <bean id="lectureDaoMySqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoMySqlImpl"/>
 
     <!-- LectureDaoNativeSqlImpl bean -->
     <bean id="lectureDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.LectureDaoNativeSqlImpl"/>
 
     <!-- TestDaoImpl bean -->
     <bean id="testDaoImpl" class="ru.systemoteh.educationportal.prim.dao.impl.TestDaoImpl">
-        <property name="dataSource" ref="dataSourceServ"/>
+        <property name="dataSource" ref="dataSourceServ01"/>
     </bean>
 
     <!-- UserDaoMySqlImpl bean -->
@@ -29,14 +34,16 @@
     <!-- UserDaoNativeSqlImpl bean -->
     <bean id="userDaoNativeSqlImpl" class="ru.systemoteh.educationportal.prim.dao.impl.UserDaoNativeSqlImpl"/>
 
+    <!-- *** Services *** -->
+
     <!-- CourseService bean -->
     <bean id="courseService" class="ru.systemoteh.educationportal.prim.service.impl.CourseServiceImpl">
-        <property name="courseDao" ref="courseDaoJpaImpl"/>
+        <property name="courseDao" ref="courseDaoNativeSqlImpl"/>
     </bean>
 
     <!-- LectureService bean -->
     <bean id="lectureService" class="ru.systemoteh.educationportal.prim.service.impl.LectureServiceImpl">
-        <property name="lectureDao" ref="lectureDaoNativeSqlImpl"/>
+        <property name="lectureDao" ref="lectureDaoMySqlImpl"/>
     </bean>
 
     <!-- TestService bean -->
@@ -51,7 +58,6 @@
 
 
     <!-- ru.systemoteh.educationportal.serv -->
-
 
 
 </beans>

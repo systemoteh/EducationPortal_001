@@ -1,5 +1,7 @@
 package ru.systemoteh.educationportal.prim.bean;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -18,6 +20,8 @@ import java.util.List;
 @ApplicationScoped
 @Component
 @Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Getter
+@Setter
 public class GlobalBean {
 
     private List<Course> courseList;
@@ -37,16 +41,4 @@ public class GlobalBean {
         //  Each course contains a list of lectures, each lecture contains a list of tests (see Course.java, Lecture.java)
     }
 
-
-    /**********************************************************************************************
-     *  Getters and Setters
-     *********************************************************************************************/
-
-    public List<Course> getCourseList() {
-        return courseList;
-    }
-
-    public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
-    }
 }

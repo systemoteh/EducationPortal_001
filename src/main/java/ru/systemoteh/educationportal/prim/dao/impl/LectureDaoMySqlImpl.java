@@ -1,7 +1,10 @@
 package ru.systemoteh.educationportal.prim.dao.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import ru.systemoteh.educationportal.prim.dao.LectureDao;
+import ru.systemoteh.educationportal.prim.model.Lecture;
 import ru.systemoteh.educationportal.prim.model.UserLecture;
 import ru.systemoteh.educationportal.prim.model.UserTest;
 
@@ -10,24 +13,10 @@ import java.util.List;
 
 public class LectureDaoMySqlImpl implements LectureDao {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(LectureDaoMySqlImpl.class);
+
     @PersistenceContext(unitName = "edu_portal_prim")
     private EntityManager entityManager;
-
-    private LectureDao lectureDao;
-
-    public void setLectureDao(LectureDao lectureDao) {
-        this.lectureDao = lectureDao;
-    }
-
-    @Override
-    public List<UserLecture> getUserLectureListByUserId(Long userId) {
-        return lectureDao.getUserLectureListByUserId(userId);
-    }
-
-    @Override
-    public List<UserTest> getUserTestListByUserId(Long userId) {
-        return lectureDao.getUserTestListByUserId(userId);
-    }
 
     @Override
     @Transactional(value = "edu_portal_prim")
@@ -35,7 +24,7 @@ public class LectureDaoMySqlImpl implements LectureDao {
         StoredProcedureQuery procedureQuery = entityManager.
                 createStoredProcedureQuery("unblock_lecture")
                 .registerStoredProcedureParameter(1, Long.class, ParameterMode.IN)
-                .registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, Long.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, Boolean.class, ParameterMode.OUT)
                 .setParameter(1, userId)
                 .setParameter(2, lectureId);
@@ -43,12 +32,18 @@ public class LectureDaoMySqlImpl implements LectureDao {
             procedureQuery.execute();
             return (boolean) procedureQuery.getOutputParameterValue(3);
         } catch (PersistenceException e) {
-            return false;   // TODO LOGGER
+            LOGGER.error(e.getMessage(), e);
+            return false;
         }
     }
 
-    @Override
-    public UserLecture getUserLectureByUserIdAndLectureId(Long userId, Long lectureId) {
-        return lectureDao.getUserLectureByUserIdAndLectureId(userId, lectureId);
+    @Override   // TODO Переделать!!!
+    @Transactional(value = "edu_portal_prim")
+    public void saveLectureConspectus(String lectureConspectus) {
+        entityManager.createNativeQuery(
+                "UPDATE lecture SET conspectus = ? WHERE id = ?", Lecture.class)
+        .setParameter(1, lectureConspectus)
+        .setParameter(2, 9)
+                .executeUpdate();
     }
 }

@@ -15,20 +15,14 @@ public class RootContext implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        // TODO
-        System.out.println("Web application 'EducationPortal' initialized");
         LOGGER.info("Web application 'EducationPortal' initialized");
 
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // TODO
-        System.out.println("Web application 'EducationPortal' initialized");
         LOGGER.info("Web application 'EducationPortal' destroyed");
     }
-
-
 
 
 }

@@ -7,7 +7,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.systemoteh.spring_mvc_application">
+    <logger name="ru.systemoteh.educationportal">
         <level value="debug"/>
     </logger>
 

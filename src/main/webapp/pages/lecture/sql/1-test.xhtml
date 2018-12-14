@@ -5,7 +5,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
 <f:view>
     <h:form id="testForm">
 
@@ -16,24 +18,41 @@
                     #{test.task}
                 </p:outputLabel>
 
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                        <p:inputTextarea value="#{testBean.selectedUserTestList.get(test.orderBy).userSolution}" widgetVar="queryArea" id="queryArea"
-                                         rows="5" cols="65" queryDelay="750" minQueryLength="4"/>
+                        <!--<p:inputTextarea value="#{testBean.selectedUserTestList.get(test.orderBy).userSolution}" widgetVar="queryArea" id="queryArea"-->
+                        <!--rows="5" cols="65" queryDelay="750" minQueryLength="4"/>-->
+                        <pe:codeMirror id="queryArea"
+                                       theme="3024-night" mode="text/x-mysql" lineNumbers="true"
+                                       value="#{testBean.selectedUserTestList.get(test.orderBy).userSolution}"
+                                       extraKeys="{ 'Ctrl-Space': function(cm) {CodeMirror.showHint(cm, CodeMirror.hint.sqlHint);}}"/>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <h:panelGrid columns="1" cellpadding="5" cellspacing="15">
-                            <p:commandButton value="Show query result" type="submit"
+                            <p:commandButton value="Show query result" id="ShowQueryResultButton"
                                              actionListener="#{testBean.getEntitiesByCustomQuery(test.orderBy)}"
+                                             process="@form" type="submit"
                                              update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable"/>
+                            <p:tooltip id="ShowQueryResultTooltip" for="ShowQueryResultButton"
+                                       value="Show the result of the query without verification"
+                                       position="top"/>
                             &nbsp;
-                            <p:commandButton value="Submit for review" type="submit"
+                            <p:commandButton value="Submit for review" id="SubmitForReviewButton"
                                              actionListener="#{testBean.getEntitiesByCustomQuery(test.orderBy)}"
+                                             process="@form" type="submit"
                                              update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable"/>
+                            <p:tooltip id="SubmitForReviewTooltip" for="SubmitForReviewButton"
+                                       value="Send the query for verification"
+                                       position="top"/>
                             &nbsp;
-                            <p:commandButton id="clearButton" value="Clear query area" type="submit"
+                            <p:commandButton id="clearButton" value="Clear query area"
                                              actionListener="#{testBean.clearQueryArea(test.orderBy)}"
+                                             process="@form" type="submit"
                                              update=":contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:rowCount :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:entitiesTable :contentForm:contentAccord:testForm:testAccord:#{test.orderBy}:queryArea"/>
+                            <p:tooltip id="ClearTooltip" for="clearButton"
+                                       value="Clear the query area"
+                                       position="top"/>
                             &nbsp;
                         </h:panelGrid>
 
@@ -57,7 +76,6 @@
 
             </p:tab>
         </p:accordionPanel>
-
     </h:form>
 </f:view>
 

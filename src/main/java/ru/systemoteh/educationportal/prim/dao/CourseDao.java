@@ -7,11 +7,7 @@ import java.util.List;
 
 public interface CourseDao {
 
-    Course getCourseById(Long id);
-
     List<Course> getAllCourses();
-
-    List<UserCourse> getUserCourseListByUserId(Long userId);
 
     UserCourse getUserCourseByUserIdAndCourseId(Long userId, Long courseId);
 

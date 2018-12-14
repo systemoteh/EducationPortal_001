@@ -18,18 +18,22 @@
             <p:accordionPanel id="contentAccord" multiple="true" activeIndex="">
                 <p:tab title="Video Lecture">
                     <div id="video">
+                        <c:if test="#{!isBlockLecture}">
                         <ui:insert name="video">
                             <ui:include
                                     src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{userBean.selectedCourse.link}/#{userBean.selectedLecture.link}-video.xhtml"/>
                         </ui:insert>
+                    </c:if>
                     </div>
                 </p:tab>
                 <p:tab title="Conspectus Lecture">
                     <div id="conspectus">
+                        <c:if test="#{!isBlockLecture}">
                         <ui:insert name="conspectus">
                             <ui:include
                                     src="#{facesContext.externalContext.requestContextPath}/pages/lecture/#{userBean.selectedCourse.link}/#{userBean.selectedLecture.link}-conspectus.xhtml"/>
                         </ui:insert>
+                        </c:if>
                     </div>
                 </p:tab>
                 <p:tab title="Tests Lecture">

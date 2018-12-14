@@ -17,20 +17,10 @@ public class CourseServiceImpl implements CourseService {
         this.courseDao = courseDao;
     }
 
-    @Override
-    public Course getCourseById(Long id) {
-        return courseDao.getCourseById(id);
-    }
-
 
     @Override
     public List<Course> getAllCourses() {
         return courseDao.getAllCourses();
-    }
-
-    @Override
-    public List<UserCourse> getUserCourseListByUserId(Long userId) {
-        return courseDao.getUserCourseListByUserId(userId);
     }
 
     @Override

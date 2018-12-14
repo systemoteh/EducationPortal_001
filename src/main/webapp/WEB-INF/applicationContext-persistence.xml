@@ -41,17 +41,17 @@
     </bean>
 
 
-    <!-- Service database -->
-    <bean id="dataSourceServ" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="${edu_portal_serv.mysql.driverClassName}"/>
-        <property name="url" value="${edu_portal_serv.mysql.url}"/>
-        <property name="username" value="${edu_portal_serv.mysql.username}"/>
-        <property name="password" value="${edu_portal_serv.mysql.password}"/>
+    <!-- Service database 01 -->
+    <bean id="dataSourceServ01" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${edu_portal_serv01.mysql.driverClassName}"/>
+        <property name="url" value="${edu_portal_serv01.mysql.url}"/>
+        <property name="username" value="${edu_portal_serv01.mysql.username}"/>
+        <property name="password" value="${edu_portal_serv01.mysql.password}"/>
     </bean>
 
-    <bean id="entityManagerFactoryServ" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSourceServ"/>
-        <property name="persistenceUnitName" value="edu_portal_serv"/>
+    <bean id="entityManagerFactoryServ01" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceServ01"/>
+        <property name="persistenceUnitName" value="edu_portal_serv01"/>
         <property name="packagesToScan" value="ru.systemoteh.educationportal.serv.model"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
@@ -64,22 +64,56 @@
         </property>
     </bean>
 
-    <bean id="transactionManagerServ" name="edu_portal_serv"
+    <bean id="transactionManagerServ01" name="edu_portal_serv01"
           class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactoryServ"/>
+        <property name="entityManagerFactory" ref="entityManagerFactoryServ01"/>
+    </bean>
+
+
+    <!-- Service database 02 -->
+    <bean id="dataSourceServ02" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${edu_portal_serv02.mysql.driverClassName}"/>
+        <property name="url" value="${edu_portal_serv02.mysql.url}"/>
+        <property name="username" value="${edu_portal_serv02.mysql.username}"/>
+        <property name="password" value="${edu_portal_serv02.mysql.password}"/>
+    </bean>
+
+    <bean id="entityManagerFactoryServ02" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceServ02"/>
+        <property name="persistenceUnitName" value="edu_portal_serv02"/>
+        <property name="packagesToScan" value="ru.systemoteh.educationportal.serv.model"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManagerServ02" name="edu_portal_serv02"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactoryServ01"/>
     </bean>
 
 
     <tx:annotation-driven transaction-manager="transactionManagerPrim"/>
-    <tx:annotation-driven transaction-manager="transactionManagerServ"/>
+    <tx:annotation-driven transaction-manager="transactionManagerServ01"/>
+    <tx:annotation-driven transaction-manager="transactionManagerServ02"/>
 
     <!-- Nested package included -->
     <jpa:repositories base-package="ru.systemoteh.educationportal.prim.repository"
                       entity-manager-factory-ref="entityManagerFactoryPrim"
                       transaction-manager-ref="transactionManagerPrim"/>
     <jpa:repositories base-package="ru.systemoteh.educationportal.serv.repository"
-                      entity-manager-factory-ref="entityManagerFactoryServ"
-                      transaction-manager-ref="transactionManagerServ"/>
+                      entity-manager-factory-ref="entityManagerFactoryServ01"
+                      transaction-manager-ref="transactionManagerServ01"/>
+    <jpa:repositories base-package="ru.systemoteh.educationportal.serv.repository"
+                      entity-manager-factory-ref="entityManagerFactoryServ02"
+                      transaction-manager-ref="transactionManagerServ02"/>
+
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 

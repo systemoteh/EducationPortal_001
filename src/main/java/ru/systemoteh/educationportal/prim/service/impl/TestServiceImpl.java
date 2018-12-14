@@ -18,4 +18,5 @@ public class TestServiceImpl implements TestService {
     public List<Map<String, String>> getEntitiesByCustomQuery(String customQuery) {
         return testDao.getEntitiesByCustomQuery(customQuery);
     }
+
 }

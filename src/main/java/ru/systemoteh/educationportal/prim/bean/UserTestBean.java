@@ -1,23 +1,30 @@
 package ru.systemoteh.educationportal.prim.bean;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import ru.systemoteh.educationportal.prim.model.*;
+import ru.systemoteh.educationportal.prim.model.UserTest;
 import ru.systemoteh.educationportal.prim.service.TestService;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 @ManagedBean(name = "testBean")
 @RequestScoped
 @Component
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Getter
+@Setter
 public class UserTestBean {
 
     private List<Map<String, String>> entities = new ArrayList<>();
@@ -70,34 +77,6 @@ public class UserTestBean {
         columnHeaders.clear();
         columnHeaders.add("...");
         entities.clear();
-    }
-
-    /**********************************************************************************************
-     *  Getters and Setters
-     *********************************************************************************************/
-
-    public List<UserTest> getSelectedUserTestList() {
-        return selectedUserTestList;
-    }
-
-    public void setSelectedUserTestList(List<UserTest> selectedUserTestList) {
-        this.selectedUserTestList = selectedUserTestList;
-    }
-
-    public List<Map<String, String>> getEntities() {
-        return entities;
-    }
-
-    public void setEntities(List<Map<String, String>> entities) {
-        this.entities = entities;
-    }
-
-    public List<String> getColumnHeaders() {
-        return columnHeaders;
-    }
-
-    public void setColumnHeaders(List<String> columnHeaders) {
-        this.columnHeaders = columnHeaders;
     }
 
 }

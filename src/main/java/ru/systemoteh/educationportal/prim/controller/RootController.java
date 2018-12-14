@@ -81,6 +81,24 @@ public class RootController {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // TODO Заглушка(чтобы не было лога об ошибки "не найден маппинг на /favicon.ico"), разобраться для чего /favicon.ico
     @RequestMapping(value = {"/favicon.ico"}, method = RequestMethod.GET)
     public String favicon(Model model) {

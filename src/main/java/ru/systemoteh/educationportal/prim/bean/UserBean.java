@@ -1,6 +1,7 @@
 package ru.systemoteh.educationportal.prim.bean;
 
-import org.primefaces.context.RequestContext;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -8,7 +9,9 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import ru.systemoteh.educationportal.prim.model.*;
 import ru.systemoteh.educationportal.prim.service.LectureService;
+import ru.systemoteh.educationportal.prim.service.TestService;
 import ru.systemoteh.educationportal.prim.service.UserService;
+import ru.systemoteh.educationportal.prim.util.Converter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -27,6 +30,8 @@ import javax.faces.event.ActionEvent;
 @SessionScoped
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Getter
+@Setter
 public class UserBean {
 
     private User currentUser;
@@ -34,13 +39,14 @@ public class UserBean {
     private Lecture selectedLecture;
     private UserCourse selectedUserCourse;
     private UserLecture selectedUserLecture;
-    private long expToConvert;
+    private long expToConvert = 30;
 
     @ManagedProperty(value = "#{userService}")
     private UserService userService;
 
     @ManagedProperty(value = "#{lectureService}")
     private LectureService lectureService;
+
 
     @Autowired(required = true)
     @Qualifier(value = "userService")
@@ -54,29 +60,25 @@ public class UserBean {
         this.lectureService = lectureService;
     }
 
-
     @PostConstruct
     public void init() {
 
     }
 
     public boolean isBlockLecture() {
-        return selectedUserLecture == null;
+        return selectedUserLecture == null; // set in RootController
     }
 
     public void unblockLecture(ActionEvent actionEvent) {
-        if (currentUser.getUserDetail().getCoins() >= selectedLecture.getCost()
-                && lectureService.unblockLecture(currentUser.getId(), selectedLecture.getId())) {
-            currentUser.getUserDetail().setCoins(
-                    currentUser.getUserDetail().getCoins() - selectedLecture.getCost());
-            selectedUserCourse.getUserLectureList().add(
-                    selectedUserLecture = new UserLecture(currentUser.getId(), selectedLecture.getId()));
-//            RequestContext.getCurrentInstance().execute("PF('blockContent').hide()");
+        long newCoins = currentUser.getUserDetail().getCoins() - selectedLecture.getCost();
+        if (newCoins >= 0 && lectureService.unblockLecture(currentUser.getId(), selectedLecture.getId())) {
+            currentUser.getUserDetail().setCoins(newCoins);
+            selectedUserLecture = Converter.convertLectureToUserLecture(currentUser.getId(), selectedLecture);  // TODO refactor to stream
+            selectedUserCourse.getUserLectureList().add(selectedUserLecture);
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
                     "Lecture unblocked. - " + selectedLecture.getCost() + " coins", null);
             FacesContext.getCurrentInstance().addMessage(null, message);
         } else {
-//            RequestContext.getCurrentInstance().execute("PF(':blockForm:blockContent').show()");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_FATAL,
                     "Lecture NOT unblocked. You don't have enough coins", null);
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -112,58 +114,8 @@ public class UserBean {
         }
     }
 
-
-    /**********************************************************************************************
-     *  Getters and Setters
-     *********************************************************************************************/
-
-    public User getCurrentUser() {
-        return currentUser;
+    public void saveLectureConspectus() {
+        lectureService.saveLectureConspectus(selectedLecture.getConspectus());
     }
-
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
-    public Course getSelectedCourse() {
-        return selectedCourse;
-    }
-
-    public void setSelectedCourse(Course selectedCourse) {
-        this.selectedCourse = selectedCourse;
-    }
-
-    public Lecture getSelectedLecture() {
-        return selectedLecture;
-    }
-
-    public void setSelectedLecture(Lecture selectedLecture) {
-        this.selectedLecture = selectedLecture;
-    }
-
-    public UserCourse getSelectedUserCourse() {
-        return selectedUserCourse;
-    }
-
-    public void setSelectedUserCourse(UserCourse selectedUserCourse) {
-        this.selectedUserCourse = selectedUserCourse;
-    }
-
-    public UserLecture getSelectedUserLecture() {
-        return selectedUserLecture;
-    }
-
-    public void setSelectedUserLecture(UserLecture selectedUserLecture) {
-        this.selectedUserLecture = selectedUserLecture;
-    }
-
-    public long getExpToConvert() {
-        return expToConvert;
-    }
-
-    public void setExpToConvert(long expToConvert) {
-        this.expToConvert = expToConvert;
-    }
-
 
 }

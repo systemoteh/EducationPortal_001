@@ -27,20 +27,22 @@ public class UserDaoMySqlImpl implements UserDao {
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(4, String.class, ParameterMode.IN)
-                .registerStoredProcedureParameter(5, Date.class, ParameterMode.IN)
-                .registerStoredProcedureParameter(6, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(5, Boolean.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(6, Date.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(7, String.class, ParameterMode.IN)
-                .registerStoredProcedureParameter(8, Boolean.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(8, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(9, Boolean.class, ParameterMode.OUT)
                 .setParameter(1, userDetail.getUserId())
                 .setParameter(2, userDetail.getFirsName().trim())
                 .setParameter(3, userDetail.getLastName().trim())
                 .setParameter(4, userDetail.getEmail().trim())
-                .setParameter(5, userDetail.getBirthDate())
-                .setParameter(6, userDetail.getCountry().trim())
-                .setParameter(7, userDetail.getCity().trim());
+                .setParameter(5, userDetail.isGender())
+                .setParameter(6, userDetail.getBirthDate())
+                .setParameter(7, userDetail.getCountry().trim())
+                .setParameter(8, userDetail.getCity().trim());
         try {
             procedureQuery.execute();
-            if ((boolean) procedureQuery.getOutputParameterValue(8)) {
+            if ((boolean) procedureQuery.getOutputParameterValue(9)) {
                 return true;
             } else {
                 userDetail.setEmail(null);

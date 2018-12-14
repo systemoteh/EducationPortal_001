@@ -7,12 +7,31 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<style type="text/css">
+    .blocked {
+        background-color: #ff0400 !important;
+        background-image: none !important;
+        color: #000000 !important;
+    }
+
+    .unblocked {
+        background-color: #1e9e12 !important;
+        background-image: none !important;
+        color: #000000 !important;
+    }
+
+    .ui-state-highlight {
+        background-color: #1e27ff !important;
+    }
+</style>
+
 <ui:composition>
 
     <h:form id="asideForm">
 
         <p:dataTable var="lecture" value="#{userBean.selectedCourse.lectureList}"
-                     emptyMessage="Select the course" >
+                     rowStyleClass="#{lecture.id > 1 ? 'blocked' : 'unblocked'}"
+                     emptyMessage="Select the course">
 
             <p:column headerText="Name Lecture">
                 <h:outputLink value="/education" update=":contentForm">

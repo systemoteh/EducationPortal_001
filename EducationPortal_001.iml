@@ -8,6 +8,8 @@
         <datasource-mapping>
           <factory-entry name="edu_portal_prim" value="db36581b-5b82-48e4-87d8-9550773ea1ca" />
           <factory-entry name="edu_portal_serv" value="dd510f64-25b6-4926-b482-64b6663bb3c7" />
+          <factory-entry name="edu_portal_serv01" />
+          <factory-entry name="edu_portal_serv02" />
           <factory-entry name="mysql" />
           <factory-entry name="mysql02" />
         </datasource-mapping>

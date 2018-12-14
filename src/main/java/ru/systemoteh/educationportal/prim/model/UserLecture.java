@@ -1,12 +1,21 @@
 package ru.systemoteh.educationportal.prim.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "user___lecture", schema = "edu_portal_prim")
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
 public class UserLecture implements Serializable {
 
     @Id
@@ -17,67 +26,14 @@ public class UserLecture implements Serializable {
     @Column(name = "lecture_id")
     private Long lectureId;
 
+    @Column(name = "status_id")
+    private Long statusId;
+
     @Basic
     @Column(name = "rating")
     private Long rating;
 
     @Transient
-    private List<UserTest> userTestList;
+    private List<UserTest> userTestList = new ArrayList<>();
 
-
-    public UserLecture() {
-    }
-
-    public UserLecture(Long userId, Long lectureId) {
-        this.userId = userId;
-        this.lectureId = lectureId;
-        this.rating = 0L;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getLectureId() {
-        return lectureId;
-    }
-
-    public void setLectureId(Long lectureId) {
-        this.lectureId = lectureId;
-    }
-
-    public Long getRating() {
-        return rating;
-    }
-
-    public void setRating(Long rating) {
-        this.rating = rating;
-    }
-
-    public List<UserTest> getUserTestList() {
-        return userTestList;
-    }
-
-    public void setUserTestList(List<UserTest> userTestList) {
-        this.userTestList = userTestList;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserLecture)) return false;
-        UserLecture that = (UserLecture) o;
-        return Objects.equals(userId, that.userId) &&
-                Objects.equals(lectureId, that.lectureId) &&
-                Objects.equals(rating, that.rating);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, lectureId, rating);
-    }
 }

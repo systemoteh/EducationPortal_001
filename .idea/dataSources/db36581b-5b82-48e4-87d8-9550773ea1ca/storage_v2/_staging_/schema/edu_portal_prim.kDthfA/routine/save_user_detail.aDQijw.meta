@@ -1,0 +1,2 @@
+#n:save_user_detail
+#i:(int(11),varchar(45),varchar(45),varchar(45),datetime,varchar(45),varchar(45))

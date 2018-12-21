@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/new/edu_portal_prim.pdf" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/ru/systemoteh/educationportal/prim/controller/LoginController.java" charset="windows-1251" />
@@ -30,6 +30,7 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/fonts" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/img" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/img/favicon.ico" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js" charset="windows-1251" />
   </component>
 </project>

@@ -99,11 +99,6 @@ public class RootController {
 
 
 
-    // TODO Заглушка(чтобы не было лога об ошибки "не найден маппинг на /favicon.ico"), разобраться для чего /favicon.ico
-    @RequestMapping(value = {"/favicon.ico"}, method = RequestMethod.GET)
-    public String favicon(Model model) {
-        return REDIRECT_TO_INDEX;
-    }
 
 
 //        TODO http://localhost:777/pages/global/education.xhtml  FAIL

@@ -106,11 +106,6 @@
         <session-timeout>30</session-timeout>
     </session-config>
 
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>Faces Servlet</servlet-name>-->
-    <!--<url-pattern>/pages/global/*</url-pattern>-->
-    <!--</servlet-mapping>-->
-
     <!--Welcome page-->
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>

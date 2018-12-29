@@ -24,6 +24,8 @@
         <!-- To the root directory and sub-pages -->
         <intercept-url pattern="/employee" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/employee/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <!--<intercept-url pattern="/codemirror-java" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>-->
+        <!--<intercept-url pattern="/codemirror-sql" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>-->
 
         <!-- Rest-services rights-->  <!-- So far, access is allowed for all unauthorized users -->
         <!-- Deny unauthorized users from accessing the API service -->

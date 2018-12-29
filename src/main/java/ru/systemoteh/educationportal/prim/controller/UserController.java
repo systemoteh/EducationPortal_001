@@ -28,4 +28,14 @@ public class UserController {
         return "convert-exp-to-coins.xhtml";
     }
 
+    @RequestMapping(value = "/codemirror-java", method = RequestMethod.GET)
+    public String codeMirrorJava(Model model) {
+        return "codemirror-java.jsp";
+    }
+
+    @RequestMapping(value = "/codemirror-sql", method = RequestMethod.GET)
+    public String codeMirrorSql(Model model) {
+        return "codemirror-sql.jsp";
+    }
+
 }

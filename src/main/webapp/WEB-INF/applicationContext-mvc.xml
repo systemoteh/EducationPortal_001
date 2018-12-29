@@ -13,7 +13,7 @@
     <mvc:annotation-driven/>
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <mvc:resources mapping="/favicon.ico" location="/resources/img/favicon.ico"/>
+    <!--<mvc:resources mapping="/favicon.ico" location="/resources/img/favicon.ico"/>-->
 
 
     <!-- Message when the authorization, notices to the user -->

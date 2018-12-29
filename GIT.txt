@@ -3,8 +3,9 @@
 [delete target]
 git init
 git add .
-git commit -m "2018-09-14"
+git commit -m '2018-12-29'
 git remote add origin https://github.com/systemoteh/EducationPortal_001.git
+// git remote add origin https://github.com/systemoteh/resume-jpa.git
 git push -u origin master
 
 ---------------------------------------------------------------------------------------
